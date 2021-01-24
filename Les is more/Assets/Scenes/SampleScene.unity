@@ -1503,7 +1503,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf5e160cee084cb390b57a0e02eae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   move_speed: 30
+=======
+  move_speed: 8
+>>>>>>> Stashed changes
   jump_force: 1000
   ceiling_check: {fileID: 1352965144}
   ground_check: {fileID: 2040630250}
@@ -1652,7 +1656,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_health_amount: {fileID: 0}
+<<<<<<< Updated upstream
   starting_health: 3
+=======
+  starting_health: 10
+>>>>>>> Stashed changes
   player_health: 0
   has_been_damaged: 0
   respawn: {fileID: 0}
