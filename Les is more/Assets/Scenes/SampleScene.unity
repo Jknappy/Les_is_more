@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_health_amount: {fileID: 0}
-  starting_health: 3
+  starting_health: 5
   player_health: 0
   has_been_damaged: 0
   respawn: {fileID: 0}
