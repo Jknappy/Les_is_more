@@ -15,7 +15,7 @@ public class Respawn : MonoBehaviour
     {
         if(collision.transform.tag == "death")
         {
-            ph.Restart();
+            ph.player_health = 0;
         }
     }
 }

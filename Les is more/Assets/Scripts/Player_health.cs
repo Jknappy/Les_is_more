@@ -13,6 +13,8 @@ public class Player_health : MonoBehaviour
     public bool has_restarted;
     public bool reached_goal = false;
 
+    public bool respawn_enemies = false;
+
     public Respawn respawn;
     public GameObject spawn_point;
 
@@ -37,7 +39,7 @@ public class Player_health : MonoBehaviour
 
         if(player_health <= 0)
         {
-            Restart();         
+            Restart();            
         }
     }
 
@@ -56,6 +58,7 @@ public class Player_health : MonoBehaviour
             reached_goal = true;
         }
     }
+
     public void Restart()
     {
         has_restarted = true;

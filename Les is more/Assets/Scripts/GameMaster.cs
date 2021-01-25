@@ -52,11 +52,11 @@ public class GameMaster : MonoBehaviour
 
         if (found_les)
         {
-            if (ph.has_restarted)
-            {
-                Debug.Log("game master sees you");
-                TotalRestart();
-            }
+            //if (ph.has_restarted)
+            //{
+            //    Debug.Log("game master sees you");
+            //    TotalRestart();
+            //}
 
             if (ph.reached_goal)
             {
@@ -90,7 +90,8 @@ public class GameMaster : MonoBehaviour
     {
         //this was an experiment to see if i could get data to persist between scenes 
         total_restart_count++;
-        ph.has_restarted = false;
+        //ph.respawn_enemies = true;
+        //ph.has_restarted = false;
     }
 
     void FindLes()
@@ -101,6 +102,8 @@ public class GameMaster : MonoBehaviour
                                
     }
 }
+
+//find all enemies in purgatory and call their respawn function 
 
 // TO DO
 // game manager does not get destroyed in between scenes 
