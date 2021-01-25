@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform ground_check;
     public LayerMask ground_object;
     public float check_radius;
+
+    public Animator anim;
     //public int max_jump_count;
 
     private Rigidbody2D rb;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         //jump_count = max_jump_count;
     }
 
@@ -35,6 +38,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInputs();
+
+        if(move_direction == 0)
+        {
+            anim.SetBool("Running", false);
+        }
+        else
+        {
+            anim.SetBool("Running", true);
+        }
 
         Animate();
     }
@@ -74,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animate()
     {
+
         //animate
         if (move_direction > 0 && !facing_right)
         {
