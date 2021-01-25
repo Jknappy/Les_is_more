@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Respawn : MonoBehaviour
-{
-    
+{   
     public Player_health ph;
 
     private void Start()

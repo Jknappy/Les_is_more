@@ -6,6 +6,7 @@ TagManager:
   tags:
   - death
   - enemy
+  - goal
   layers:
   - Default
   - TransparentFX
