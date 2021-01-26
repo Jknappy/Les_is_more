@@ -14,11 +14,26 @@ public class Enemy_health : MonoBehaviour
 
     public Player_health ph;
 
+    public float move_speed;
+
+    public Rigidbody2D rb;
+    public float knock_back;
+    public float knock_back_length;
+    public float knock_back_count;
+    public bool knock_right;
+
+    public Transform target;
+
+    public SpriteRenderer sp;
+
     // Start is called before the first frame update
     void Start()
     {
         health = starting_health;
 
+        rb = GetComponent<Rigidbody2D>();
+
+        target = GameObject.FindWithTag("Player").transform;
         Generate_Spawn_point();    
     }
 
@@ -35,6 +50,33 @@ public class Enemy_health : MonoBehaviour
         {           
             Respawn();
         }
+
+        if(knock_back_count <= 0)
+        {
+          
+            transform.position = Vector2.MoveTowards(transform.position, target.position, move_speed * Time.deltaTime);
+            if (target.position.x >= transform.position.x)
+            {
+                sp.flipX = true;
+            }
+            else
+            {
+                sp.flipX = false;
+            }
+        }
+        else
+        {
+            if (knock_right)
+            {
+                rb.velocity = new Vector2(-knock_back, knock_back);
+                knock_back_count -= Time.deltaTime;
+            }
+            if (!knock_right)
+            {
+                rb.velocity = new Vector2(knock_back, knock_back);
+                knock_back_count -= Time.deltaTime;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,8 +84,20 @@ public class Enemy_health : MonoBehaviour
         if(collision.tag == "attack")
         {
             health--;
+
+            if(target.position.x > transform.position.x)
+            {
+                knock_right = true;
+            }
+            else
+            {
+                knock_right = false;
+            }
+
+            knock_back_count = knock_back_length;
             //hit animation
-            //recoil motion 
+            //recoil motion
+            //move_speed = 0 
         }
     }
 
