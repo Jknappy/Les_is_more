@@ -23,6 +23,7 @@ public class Enemy_health : MonoBehaviour
     public bool knock_right;
 
     public Transform target;
+    public float target_range;
 
     public SpriteRenderer sp;
     public Animator anim;
@@ -41,7 +42,7 @@ public class Enemy_health : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {       
         if(health <= 0)
         {
             Purgatory();
@@ -55,27 +56,30 @@ public class Enemy_health : MonoBehaviour
 
         if(knock_back_count <= 0)
         {
-          
-            transform.position = Vector2.MoveTowards(transform.position, target.position, move_speed * Time.deltaTime);
-            if (target.position.x >= transform.position.x)
+            if(Vector2.Distance(transform.position, target.position) <= target_range)
             {
-                sp.flipX = true;
+                transform.position = Vector2.MoveTowards(transform.position, target.position, move_speed * Time.deltaTime);
+                if (target.position.x >= transform.position.x)
+                {
+                    sp.flipX = true;
+                }
+                else
+                {
+                    sp.flipX = false;
+                }
             }
-            else
-            {
-                sp.flipX = false;
-            }
+
         }
         else
         {
             if (knock_right)
             {
-                rb.velocity = new Vector2(-knock_back, knock_back);
+                rb.velocity = new Vector2(-knock_back, 0);
                 knock_back_count -= Time.deltaTime;               
             }
             if (!knock_right)
             {
-                rb.velocity = new Vector2(knock_back, knock_back);
+                rb.velocity = new Vector2(knock_back, 0);
                 knock_back_count -= Time.deltaTime;               
             }
         }

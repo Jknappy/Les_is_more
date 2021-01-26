@@ -129,6 +129,7 @@ MonoBehaviour:
   knock_right: 0
   target: {fileID: 0}
   sp: {fileID: 2815159560128452765}
+  anim: {fileID: 2815159558880092145}
 --- !u!95 &2815159558880092145
 Animator:
   serializedVersion: 3
