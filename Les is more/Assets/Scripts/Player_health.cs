@@ -37,7 +37,7 @@ public class Player_health : MonoBehaviour
             has_been_damaged = false; 
         }
 
-        if(player_health <= 0)
+        if(player_health <= 0|| Input.GetKeyDown(KeyCode.R))
         {
             Restart();            
         }
@@ -65,5 +65,15 @@ public class Player_health : MonoBehaviour
         restart_count++;
         this.transform.position = spawn_point.transform.position;
         player_health = starting_health;
+
+        //dumb way to do this but lets see if it works 
+        StartCoroutine(Wait_For_Enemy_Respawn());    
     }
+
+    IEnumerator Wait_For_Enemy_Respawn()
+    {
+        yield return new WaitForSeconds(.2f);
+        has_restarted = false;
+    }
+
 }

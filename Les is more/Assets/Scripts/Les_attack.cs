@@ -10,6 +10,7 @@ public class Les_attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         //weapon.GetComponent<GameObject>();
     }
 
@@ -19,14 +20,15 @@ public class Les_attack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //attack
-            Attack();
+            animator.SetTrigger("Attack");
+            //Attack();
         }
     }
 
     void Attack()
     {
-        animator.SetTrigger("Attack");
-        Debug.Log("attack");
+        //animator.SetTrigger("Attack");
+        //Debug.Log("attack");
         // play an attak animation
         // detect enemies in range of attack
         // damage enemies

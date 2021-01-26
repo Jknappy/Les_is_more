@@ -79,8 +79,17 @@ public class PlayerMovement : MonoBehaviour
         move_direction = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
-            is_jumping = true;
+            anim.SetTrigger("TakeOff");
+            is_jumping = true;           
+        }
 
+        if (is_grounded == true)
+        {
+            anim.SetBool("Jumping", false);
+        }
+        else
+        {
+            anim.SetBool("Jumping", true);
         }
     }
 

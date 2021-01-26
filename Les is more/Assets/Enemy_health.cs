@@ -66,6 +66,7 @@ public class Enemy_health : MonoBehaviour
         hitbox.enabled = true;
         health = starting_health;
         this.transform.position = spawn_point.transform.position;
-        ph.has_restarted = false;
+        //change, this was making it so only one enemy respawn
+        //ph.has_restarted = false;
     }
 }
