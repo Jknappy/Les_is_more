@@ -68,7 +68,6 @@ public class Enemy_health : MonoBehaviour
                     sp.flipX = false;
                 }
             }
-
         }
         else
         {

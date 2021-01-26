@@ -10,17 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public Transform ground_check;
     public LayerMask ground_object;
     public float check_radius;
-
     public Animator anim;
-    //public int max_jump_count;
+ 
+    public float knock_back;
+    public float knock_back_length;
+    public float knock_back_count;
+    public bool knock_right;
 
     private Rigidbody2D rb;
     private bool facing_right = true;
     private float move_direction;
     private bool is_jumping = false;
     private bool is_grounded;
-    //private int jump_count;
-   // private bool initial_jump;
 
     private void Awake()
     {
@@ -49,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Animate();
+
+
     }
 
     private void FixedUpdate()
@@ -64,14 +67,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(move_direction * move_speed, rb.velocity.y);
-        if (is_jumping)
+        if (knock_back_count <= 0)
         {
-            rb.AddForce(new Vector2(0f, jump_force));
-            is_jumping = false;
-            //jump_count--;
+            rb.velocity = new Vector2(move_direction * move_speed, rb.velocity.y);
+            if (is_jumping)
+            {
+                rb.AddForce(new Vector2(0f, jump_force));
+                is_jumping = false;
+                //jump_count--;
+            }
         }
-        
+        else
+        {
+            if (knock_right)
+            {
+                rb.velocity = new Vector2(-knock_back, 1);
+                knock_back_count -= Time.deltaTime;
+            }
+            if (!knock_right)
+            {
+                rb.velocity = new Vector2(knock_back, 1);
+                knock_back_count -= Time.deltaTime;
+            }
+        }
+
+
     }
 
     private void ProcessInputs()
@@ -105,7 +125,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animate()
     {
-
         //animate
         if (move_direction > 0 && !facing_right)
         {

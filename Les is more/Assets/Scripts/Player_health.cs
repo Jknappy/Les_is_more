@@ -18,14 +18,18 @@ public class Player_health : MonoBehaviour
     public Respawn respawn;
     public GameObject spawn_point;
 
+    public PlayerMovement pm;
+    public Animator anim;
+
     public float restart_count = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        pm = GetComponent<PlayerMovement>();
         respawn = GetComponent<Respawn>();
-        player_health = starting_health;
-        
+        player_health = starting_health;        
     }
 
     // Update is called once per frame
@@ -47,6 +51,16 @@ public class Player_health : MonoBehaviour
     {
         if (collision.transform.tag == "enemy")
         {
+            if (transform.position.x < collision.transform.position.x)
+            {
+                pm.knock_right = true;
+            }
+            else
+            {
+                pm.knock_right = false;
+            }
+            anim.SetTrigger("Recoil");
+            pm.knock_back_count = pm.knock_back_length;
             has_been_damaged = true;
         }
     }

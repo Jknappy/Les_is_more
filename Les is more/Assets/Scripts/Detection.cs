@@ -6,11 +6,11 @@ public class Detection : MonoBehaviour
 {
     public PlayerMovement pm;
     //public CircleCollider2D detection_radius;
-    public float move_speed;
+    
 
     public float max_distance;
     public float min_distance;
-
+    public float move_speed;
     public Transform target;
 
     // Start is called before the first frame update

@@ -416,9 +416,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pm: {fileID: 2079592082}
-  move_speed: 0.5
   max_distance: 20
   min_distance: 0
+  move_speed: 0.5
   target: {fileID: 2079592085}
 --- !u!58 &460111317
 CircleCollider2D:
@@ -1296,6 +1296,10 @@ MonoBehaviour:
     m_Bits: 64
   check_radius: 0.02
   anim: {fileID: 2079592089}
+  knock_back: 5
+  knock_back_length: 0.05
+  knock_back_count: 0
+  knock_right: 0
 --- !u!212 &2079592084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1418,6 +1422,8 @@ MonoBehaviour:
   respawn_enemies: 0
   respawn: {fileID: 0}
   spawn_point: {fileID: 316138468}
+  pm: {fileID: 0}
+  anim: {fileID: 0}
   restart_count: 0
 --- !u!95 &2079592089
 Animator:
@@ -1611,6 +1617,10 @@ PrefabInstance:
       propertyPath: purgatory
       value: 
       objectReference: {fileID: 2143539401}
+    - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
+      propertyPath: target_range
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3034117805328522570, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1692,6 +1702,10 @@ PrefabInstance:
       propertyPath: purgatory
       value: 
       objectReference: {fileID: 2143539401}
+    - target: {fileID: 9086203727416864972, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
+      propertyPath: target_range
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9086203727416864977, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
       propertyPath: m_RootOrder
       value: 8
