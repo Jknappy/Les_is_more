@@ -68,10 +68,10 @@ public class PlayerMovement : MonoBehaviour
         if (is_jumping)
         {
             rb.AddForce(new Vector2(0f, jump_force));
-
+            is_jumping = false;
             //jump_count--;
         }
-        is_jumping = false;
+        
     }
 
     private void ProcessInputs()
@@ -81,14 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
             anim.SetTrigger("TakeOff");
-            is_jumping = true;
-            //StartCoroutine(TakeOff());
-            //IEnumerator TakeOff()
-            //{
-            //    yield return new WaitForSeconds(.02f);
-            //    is_jumping = true;
-            //}
-                      
+            is_jumping = true;                    
         }
 
         if (is_grounded == true)
@@ -98,6 +91,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetBool("Jumping", true);
+        }
+
+        if(is_jumping == false && is_grounded == false)
+        {
+            anim.SetBool("Falling", true);
+        }
+        else
+        {
+            anim.SetBool("Falling", false);
         }
     }
 
