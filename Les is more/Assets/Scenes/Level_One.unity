@@ -681,6 +681,7 @@ MonoBehaviour:
   knock_right: 0
   target: {fileID: 0}
   sp: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!58 &1147382547 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3034117805328522572, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
@@ -1118,37 +1119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
---- !u!1 &1890768530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
+--- !u!95 &1890768531 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2815159558880092145, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
   m_PrefabInstance: {fileID: 2815159559327760652}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1890768534 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2815159560128452765, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-  m_PrefabInstance: {fileID: 2815159559327760652}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1890768535
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890768530}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 15
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!1 &1938081676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1589,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.76, y: 0.56}
+    oldSize: {x: 0.39, y: 0.45}
     newSize: {x: 0.39, y: 0.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1665,13 +1640,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2079592088}
     - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: rb
+      propertyPath: anim
       value: 
-      objectReference: {fileID: 1890768535}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: sp
-      value: 
-      objectReference: {fileID: 1890768534}
+      objectReference: {fileID: 1890768531}
     - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: target
       value: 
@@ -1680,49 +1651,9 @@ PrefabInstance:
       propertyPath: purgatory
       value: 
       objectReference: {fileID: 2143539401}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: knock_back
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: move_speed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: knockback_speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: knock_back_count
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: knock_back_length
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: knock_back_position_left
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: knock_back_position_right
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_Name
       value: Enemy_Pigeon
-      objectReference: {fileID: 0}
-    - target: {fileID: 2815159560128452764, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2815159560128452765, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2815159560128452765, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
-      propertyPath: m_FlipY
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452766, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_RootOrder

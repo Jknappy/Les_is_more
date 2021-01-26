@@ -25,6 +25,7 @@ public class Enemy_health : MonoBehaviour
     public Transform target;
 
     public SpriteRenderer sp;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class Enemy_health : MonoBehaviour
         health = starting_health;
 
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         target = GameObject.FindWithTag("Player").transform;
         Generate_Spawn_point();    
@@ -69,12 +71,12 @@ public class Enemy_health : MonoBehaviour
             if (knock_right)
             {
                 rb.velocity = new Vector2(-knock_back, knock_back);
-                knock_back_count -= Time.deltaTime;
+                knock_back_count -= Time.deltaTime;               
             }
             if (!knock_right)
             {
                 rb.velocity = new Vector2(knock_back, knock_back);
-                knock_back_count -= Time.deltaTime;
+                knock_back_count -= Time.deltaTime;               
             }
         }
     }
@@ -94,6 +96,7 @@ public class Enemy_health : MonoBehaviour
                 knock_right = false;
             }
 
+            anim.SetTrigger("Recoil");
             knock_back_count = knock_back_length;
             //hit animation
             //recoil motion
