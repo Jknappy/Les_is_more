@@ -8,7 +8,12 @@ public class Les_animations : MonoBehaviour
     public Animator sleepy_anim;
 
     public bool is_les;
+    public float les_move_speed;
+
     public bool is_sleepy;
+    public bool sleepy_getting_up;
+    public float sleepy_move_speed;
+
     public bool is_angry;
 
     public PlayerMovement pm;
@@ -20,7 +25,16 @@ public class Les_animations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //anim = GetComponent<Animator>();
+        if (is_les)
+        {
+            pm.move_speed = les_move_speed;
+            les_anim = GetComponent<Animator>();
+        }
+        else if(is_sleepy)
+        {
+            pm.move_speed = sleepy_move_speed;
+            sleepy_anim = GetComponent<Animator>();
+        }       
     }
 
     // Update is called once per frame
@@ -29,11 +43,29 @@ public class Les_animations : MonoBehaviour
         //need to set conditions for the triggers 
         if (is_les)
         {
-            Les_Jump_Anim();
+            Les_Jump();
             Les_Falling();
             Les_Running();
             Flip_Les();
-        }     
+        }
+        else if (is_sleepy)
+        {
+            Sleepy_Jump();
+            Sleepy_Running();
+            Flip_Sleepy();
+
+            if (sleepy_anim.GetCurrentAnimatorStateInfo(0).IsName("sleepLanding")||
+                sleepy_anim.GetCurrentAnimatorStateInfo(0).IsName("sleepAttack"))
+            {
+                sleepy_getting_up = true;
+                pm.move_speed = 0;
+            }
+            else
+            {
+                sleepy_getting_up = false;
+                pm.move_speed = sleepy_move_speed;
+            }
+        }
     }
 
     public void Attack()
@@ -42,7 +74,7 @@ public class Les_animations : MonoBehaviour
         {
             Les_Attack();
         }
-        if (is_sleepy)
+        else if (is_sleepy)
         {
             Sleepy_Attack();
         }
@@ -80,7 +112,7 @@ public class Les_animations : MonoBehaviour
         }
     }
 
-    public void Les_Jump_Anim()
+    public void Les_Jump()
     {
         if (pm.is_grounded == true)
         {
@@ -124,7 +156,10 @@ public class Les_animations : MonoBehaviour
 
     public void Recoil()
     {
-        les_anim.SetTrigger("Recoil");
+        if (is_les)
+        {
+            les_anim.SetTrigger("Recoil");
+        }
     }
 
     public void Les_Attack()
@@ -144,9 +179,12 @@ public class Les_animations : MonoBehaviour
         }
     }
 
+
+    //sleepy animations
+
     public void Sleepy_Attack()
     {
-        les_anim.SetTrigger("Attack");
+        sleepy_anim.SetTrigger("Attack");
 
         if (pm.is_grounded)
         {
@@ -159,5 +197,50 @@ public class Les_animations : MonoBehaviour
             yield return new WaitForSeconds(2f);
             pm.move_speed = .75f;
         }
+    }
+
+    public void Sleepy_Jump()
+    {
+        if (pm.is_grounded == true)
+        {
+            sleepy_anim.SetBool("Jumping", false);
+        }
+        else
+        {
+            sleepy_anim.SetBool("Jumping", true);         
+        }
+    }
+
+    public void Sleepy_Running()
+    {
+        if (pm.move_direction == 0)
+        {
+            sleepy_anim.SetBool("Running", false);
+        }
+        else
+        {
+            sleepy_anim.SetBool("Running", true);
+        }
+    }
+
+    public void Flip_Sleepy()
+    {
+        if (pm.is_grounded)
+        {
+            if (pm.move_direction > 0 && !facing_right)
+            {
+                Sleepy_Flip_Sprite();
+            }
+            else if (pm.move_direction < 0 && facing_right)
+            {
+                Sleepy_Flip_Sprite();
+            }
+        }
+    }
+
+    public void Sleepy_Flip_Sprite()
+    {
+        facing_right = !facing_right;
+        transform.Rotate(0f, 180f, 0f);
     }
 }

@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform ground_check;
     public LayerMask ground_object;
     public float check_radius;
+
+    public Les_animations les_Animations;
+
  
     public float knock_back;
     public float knock_back_length;
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        les_Animations = GetComponent<Les_animations>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -79,10 +83,24 @@ public class PlayerMovement : MonoBehaviour
         //process inputs
         move_direction = Input.GetAxis("Horizontal");
 
-        //les
+
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
-            is_jumping = true;                    
+            if (les_Animations.is_sleepy)
+            {
+                if (les_Animations.sleepy_getting_up)
+                {
+                    is_jumping = false;
+                }
+                else
+                {
+                    is_jumping = true;
+                }
+            }
+            else //is les
+            {
+                is_jumping = true;
+            }           
         }
     }
 }

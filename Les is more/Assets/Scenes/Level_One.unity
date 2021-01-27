@@ -668,7 +668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &946642510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23ab9fe2805d490d871b14154034634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 0}
+  anim: {fileID: 0}
   pm: {fileID: 0}
 --- !u!114 &946642513
 MonoBehaviour:
@@ -751,7 +751,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   spawn_point: {fileID: 316138468}
   pm: {fileID: 0}
-  anim: {fileID: 946642511}
   restart_count: 0
 --- !u!114 &946642514
 MonoBehaviour:
@@ -778,8 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf5e160cee084cb390b57a0e02eae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 0}
-  move_speed: 0.75
+  move_speed: 0
   jump_force: 175
   ceiling_check: {fileID: 1258063931}
   ground_check: {fileID: 2069200885}
@@ -787,6 +785,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   check_radius: 0.02
+  les_Animations: {fileID: 0}
   knock_back: 5
   knock_back_length: 0.05
   knock_back_count: 0
@@ -896,14 +895,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d322ef82c32794cd0b2f5f4fafaa93b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 0}
-  sleepy_anim: {fileID: 0}
+  les_anim: {fileID: 2079592089}
+  sleepy_anim: {fileID: 946642511}
   is_les: 0
-  is_sleepy: 0
+  les_move_speed: 1.5
+  is_sleepy: 1
+  sleepy_getting_up: 0
+  sleepy_move_speed: 0.75
   is_angry: 0
-  pm: {fileID: 0}
-  ph: {fileID: 0}
-  la: {fileID: 0}
+  pm: {fileID: 946642515}
+  ph: {fileID: 946642513}
+  la: {fileID: 946642512}
   facing_right: 1
 --- !u!1 &1030086133
 GameObject:
@@ -1700,7 +1702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2079592082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,7 +1715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf5e160cee084cb390b57a0e02eae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 2079592083}
   move_speed: 1.5
   jump_force: 325
   ceiling_check: {fileID: 1352965144}
@@ -1722,6 +1723,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   check_radius: 0.02
+  les_Animations: {fileID: 0}
   knock_back: 5
   knock_back_length: 0.05
   knock_back_count: 0
@@ -1744,7 +1746,10 @@ MonoBehaviour:
   les_anim: {fileID: 2079592089}
   sleepy_anim: {fileID: 0}
   is_les: 1
+  les_move_speed: 1.5
   is_sleepy: 0
+  sleepy_getting_up: 0
+  sleepy_move_speed: 0.75
   is_angry: 0
   pm: {fileID: 2079592082}
   ph: {fileID: 2079592088}
@@ -1874,7 +1879,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   spawn_point: {fileID: 316138468}
   pm: {fileID: 0}
-  anim: {fileID: 0}
   restart_count: 0
 --- !u!95 &2079592089
 Animator:
@@ -1907,7 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23ab9fe2805d490d871b14154034634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 2079592083}
+  anim: {fileID: 0}
   pm: {fileID: 0}
 --- !u!61 &2079592091
 BoxCollider2D:
@@ -1925,8 +1929,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.33582088}
-    oldSize: {x: 0.7, y: 0.67}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.39, y: 0.45}
     newSize: {x: 0.27, y: 0.43}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2006,7 +2010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452766, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_RootOrder
