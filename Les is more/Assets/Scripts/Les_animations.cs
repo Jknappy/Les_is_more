@@ -36,9 +36,28 @@ public class Les_animations : MonoBehaviour
         }     
     }
 
+    public void Attack()
+    {
+        if (is_les)
+        {
+            Les_Attack();
+        }
+        if (is_sleepy)
+        {
+            Sleepy_Attack();
+        }
+        if (is_angry)
+        {
+            //Angry_Attack();
+        }
+    }
+
     public void Les_Idle()
     {
-        les_anim.SetTrigger("Idle");
+        if (ph.has_restarted)
+        {
+            les_anim.SetTrigger("Idle");
+        }
     }
 
     public void Les_Running()
@@ -53,26 +72,12 @@ public class Les_animations : MonoBehaviour
         }
     }
 
-    public void Les_Attack()
-    {
-        les_anim.SetTrigger("Attack");
-
-        if (pm.is_grounded)
-        {
-            pm.move_speed = 0f;
-            StartCoroutine(Les_Attack_Stall());
-        }
-    
-        IEnumerator Les_Attack_Stall()
-        {
-            yield return new WaitForSeconds(.5f);
-            pm.move_speed = 1.5f;
-        }
-    }
-
     public void Les_Take_Off()
     {
-        les_anim.SetTrigger("TakeOff");
+        if (pm.is_jumping)
+        {
+            les_anim.SetTrigger("TakeOff");
+        }
     }
 
     public void Les_Jump_Anim()
@@ -117,9 +122,42 @@ public class Les_animations : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    public void Les_Recoil()
+    public void Recoil()
     {
         les_anim.SetTrigger("Recoil");
     }
 
+    public void Les_Attack()
+    {
+        les_anim.SetTrigger("Attack");
+
+        if (pm.is_grounded)
+        {
+            pm.move_speed = 0f;
+            StartCoroutine(Les_Attack_Stall());
+        }
+
+        IEnumerator Les_Attack_Stall()
+        {
+            yield return new WaitForSeconds(.5f);
+            pm.move_speed = 1.5f;
+        }
+    }
+
+    public void Sleepy_Attack()
+    {
+        les_anim.SetTrigger("Attack");
+
+        if (pm.is_grounded)
+        {
+            pm.move_speed = 0f;
+            StartCoroutine(Sleepy_Attack_Stall());
+        }
+        
+        IEnumerator Sleepy_Attack_Stall()
+        {
+            yield return new WaitForSeconds(2f);
+            pm.move_speed = .75f;
+        }
+    }
 }

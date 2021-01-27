@@ -21,7 +21,6 @@ public class Player_health : MonoBehaviour
     public GameObject spawn_point;
 
     public PlayerMovement pm;
-    public Animator anim;
 
     public float restart_count = 0f;
 
@@ -29,8 +28,6 @@ public class Player_health : MonoBehaviour
     void Start()
     {
         les_anim = GetComponent<Les_animations>();
-
-        anim = GetComponent<Animator>();
         pm = GetComponent<PlayerMovement>();
         respawn = GetComponent<Respawn>();
         player_health = starting_health;        
@@ -63,7 +60,8 @@ public class Player_health : MonoBehaviour
             {
                 pm.knock_right = false;
             }
-            les_anim.Les_Recoil();
+            les_anim.Recoil();
+
             pm.knock_back_count = pm.knock_back_length;
             has_been_damaged = true;
         }
@@ -84,8 +82,6 @@ public class Player_health : MonoBehaviour
         restart_count++;
         this.transform.position = spawn_point.transform.position;
         player_health = starting_health;
-
-        les_anim.Les_Idle();
 
         //dumb way to do this but lets see if it works 
         StartCoroutine(Wait_For_Enemy_Respawn());    

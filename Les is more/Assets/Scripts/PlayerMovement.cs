@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Les_animations les_anim;
-
     public float move_speed;
     public float jump_force;
     public Transform ceiling_check;
@@ -31,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        les_anim = GetComponent<Les_animations>();
+
     }
 
     // Update is called once per frame
@@ -84,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
         //les
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
-            les_anim.Les_Take_Off();
             is_jumping = true;                    
         }
     }
