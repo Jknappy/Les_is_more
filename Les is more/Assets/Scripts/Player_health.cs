@@ -70,6 +70,7 @@ public class Player_health : MonoBehaviour
         if(collision.transform.tag == "goal")
         {
             reached_goal = true;
+            //move to next level 
         }
     }
 
@@ -79,6 +80,8 @@ public class Player_health : MonoBehaviour
         restart_count++;
         this.transform.position = spawn_point.transform.position;
         player_health = starting_health;
+
+        anim.SetTrigger("Idle");
 
         //dumb way to do this but lets see if it works 
         StartCoroutine(Wait_For_Enemy_Respawn());    
