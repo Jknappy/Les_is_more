@@ -656,11 +656,9 @@ GameObject:
   - component: {fileID: 946642517}
   - component: {fileID: 946642516}
   - component: {fileID: 946642515}
-  - component: {fileID: 946642514}
   - component: {fileID: 946642513}
   - component: {fileID: 946642512}
   - component: {fileID: 946642511}
-  - component: {fileID: 946642510}
   - component: {fileID: 946642519}
   m_Layer: 0
   m_Name: SleepLes
@@ -669,32 +667,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &946642510
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946642509}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5113636}
-    oldSize: {x: 0.33, y: 0.44}
-    newSize: {x: 0.27, y: 0.43}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.41}
-  m_EdgeRadius: 0
 --- !u!95 &946642511
 Animator:
   serializedVersion: 3
@@ -740,31 +712,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d767cb85eabda43deadba832c9a98934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_health_amount: {fileID: 0}
   starting_health: 6
   player_health: 0
-  les_anim: {fileID: 0}
-  has_been_damaged: 0
+  restart_count: 0
+  player_health_amount: {fileID: 0}
+  restart_count_text: {fileID: 0}
+  spawn_point: {fileID: 316138468}
+  can_be_damaged: 0
   has_restarted: 0
   reached_goal: 0
-  respawn_enemies: 0
-  respawn: {fileID: 0}
-  spawn_point: {fileID: 316138468}
-  pm: {fileID: 0}
-  restart_count: 0
---- !u!114 &946642514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946642509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbd7979a5c6a4688bc013c5c7ce8e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ph: {fileID: 0}
 --- !u!114 &946642515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,20 +735,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 0
   jump_force: 175
+  move_direction: 0
+  is_jumping: 0
+  is_grounded: 0
+  knock_back: 5
+  knock_back_length: 0.05
+  knock_back_count: 0
+  knock_right: 0
   ceiling_check: {fileID: 1258063931}
   ground_check: {fileID: 2069200885}
   ground_object:
     serializedVersion: 2
     m_Bits: 64
   check_radius: 0.02
-  les_Animations: {fileID: 0}
-  knock_back: 5
-  knock_back_length: 0.05
-  knock_back_count: 0
-  knock_right: 0
-  move_direction: 0
-  is_jumping: 0
-  is_grounded: 0
 --- !u!50 &946642516
 Rigidbody2D:
   serializedVersion: 4
@@ -895,14 +850,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d322ef82c32794cd0b2f5f4fafaa93b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 2079592089}
-  sleepy_anim: {fileID: 946642511}
   is_les: 0
   les_move_speed: 1.5
   is_sleepy: 1
   sleepy_getting_up: 0
   sleepy_move_speed: 0.75
   is_angry: 0
+  angry_move_speed: 0
+  les_anim: {fileID: 2079592089}
+  sleepy_anim: {fileID: 946642511}
   pm: {fileID: 946642515}
   ph: {fileID: 946642513}
   la: {fileID: 946642512}
@@ -1717,20 +1673,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 1.5
   jump_force: 325
+  move_direction: 0
+  is_jumping: 0
+  is_grounded: 0
+  knock_back: 5
+  knock_back_length: 0.05
+  knock_back_count: 0
+  knock_right: 0
   ceiling_check: {fileID: 1352965144}
   ground_check: {fileID: 2040630250}
   ground_object:
     serializedVersion: 2
     m_Bits: 64
   check_radius: 0.02
-  les_Animations: {fileID: 0}
-  knock_back: 5
-  knock_back_length: 0.05
-  knock_back_count: 0
-  knock_right: 0
-  move_direction: 0
-  is_jumping: 0
-  is_grounded: 0
 --- !u!114 &2079592083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,14 +1698,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d322ef82c32794cd0b2f5f4fafaa93b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  les_anim: {fileID: 2079592089}
-  sleepy_anim: {fileID: 0}
   is_les: 1
   les_move_speed: 1.5
   is_sleepy: 0
   sleepy_getting_up: 0
   sleepy_move_speed: 0.75
   is_angry: 0
+  angry_move_speed: 0
+  les_anim: {fileID: 2079592089}
+  sleepy_anim: {fileID: 0}
   pm: {fileID: 2079592082}
   ph: {fileID: 2079592088}
   la: {fileID: 2079592090}
@@ -1868,18 +1824,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d767cb85eabda43deadba832c9a98934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_health_amount: {fileID: 0}
   starting_health: 3
   player_health: 0
-  les_anim: {fileID: 0}
-  has_been_damaged: 0
+  restart_count: 0
+  player_health_amount: {fileID: 0}
+  restart_count_text: {fileID: 0}
+  spawn_point: {fileID: 316138468}
+  can_be_damaged: 0
   has_restarted: 0
   reached_goal: 0
-  respawn_enemies: 0
-  respawn: {fileID: 0}
-  spawn_point: {fileID: 316138468}
-  pm: {fileID: 0}
-  restart_count: 0
 --- !u!95 &2079592089
 Animator:
   serializedVersion: 3

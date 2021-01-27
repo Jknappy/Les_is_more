@@ -5,41 +5,43 @@ using UnityEngine.UI;
 
 public class Player_health : MonoBehaviour
 {
-    public Text player_health_amount;
+    [Header("Player Health")]
     public float starting_health;
     public float player_health;
+    public float restart_count = 0f;
 
-    public Les_animations les_anim;
+    [Header("Display Text")]
+    public Text player_health_amount;
+    public Text restart_count_text;
 
-    public bool has_been_damaged = false;
+    [Header("Spawn Location")]
+    public GameObject spawn_point;
+
+    [Header("Conditions")]
+    public bool can_be_damaged = false;
     public bool has_restarted;
     public bool reached_goal = false;
 
-    public bool respawn_enemies = false;
-
-    public Respawn respawn;
-    public GameObject spawn_point;
-
-    public PlayerMovement pm;
-
-    public float restart_count = 0f;
+    private Les_animations les_anim;
+    private PlayerMovement pm;
+    //public bool respawn_enemies = false;
 
     // Start is called before the first frame update
     void Start()
     {
         les_anim = GetComponent<Les_animations>();
         pm = GetComponent<PlayerMovement>();
-        respawn = GetComponent<Respawn>();
         player_health = starting_health;        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(has_been_damaged)
+        if(can_be_damaged)
         {
             player_health -= 1f;
-            has_been_damaged = false; 
+            can_be_damaged = false;
+            //set coroutine for invincibility 
         }
 
         if(player_health <= 0|| Input.GetKeyDown(KeyCode.R))
@@ -63,7 +65,7 @@ public class Player_health : MonoBehaviour
             les_anim.Recoil();
 
             pm.knock_back_count = pm.knock_back_length;
-            has_been_damaged = true;
+            can_be_damaged = true;
         }
     }
 
@@ -74,6 +76,11 @@ public class Player_health : MonoBehaviour
             reached_goal = true;
             //move to next level 
         }
+
+        if(collision.transform.tag == "death")
+        {
+            player_health = 0f;
+        }
     }
 
     public void Restart()
@@ -83,7 +90,7 @@ public class Player_health : MonoBehaviour
         this.transform.position = spawn_point.transform.position;
         player_health = starting_health;
 
-        //dumb way to do this but lets see if it works 
+        // a timer to get all the enemies respawning, without it the true false check was too quick 
         StartCoroutine(Wait_For_Enemy_Respawn());    
     }
 

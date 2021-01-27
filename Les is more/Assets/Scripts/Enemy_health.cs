@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class Enemy_health : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     public float starting_health;
     public float health;
-    public bool is_in_purgatory = false;
-    public CircleCollider2D hitbox;
+    public float move_speed;
+    public float target_range;
+    public bool is_in_purgatory = false;   
 
+    [Header("Locations")]
     public GameObject purgatory;   
     public GameObject spawn_point;
 
-    public Player_health ph;
-
-    public float move_speed;
-
-    public Rigidbody2D rb;
+    [Header("KnockBack")]
     public float knock_back;
     public float knock_back_length;
     public float knock_back_count;
     public bool knock_right;
 
+    [Header("Player Components")]
     public Transform target;
-    public float target_range;
+    public Player_health ph;
 
+    [Header("Enemy Components")]
+    public Rigidbody2D rb;
+    public CircleCollider2D hitbox;
     public SpriteRenderer sp;
     public Animator anim;
 

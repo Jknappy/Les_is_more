@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Les_animations : MonoBehaviour
 {
-    public Animator les_anim;
-    public Animator sleepy_anim;
-
+    [Header("Les")]
     public bool is_les;
     public float les_move_speed;
 
+    [Header("Sleepy")]
     public bool is_sleepy;
     public bool sleepy_getting_up;
     public float sleepy_move_speed;
 
+    [Header("Angry")]
     public bool is_angry;
+    public float angry_move_speed;
+
+    [Header("Components")]
+    public Animator les_anim;
+    public Animator sleepy_anim;
 
     public PlayerMovement pm;
     public Player_health ph;

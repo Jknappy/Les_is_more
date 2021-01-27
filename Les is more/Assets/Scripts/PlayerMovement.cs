@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Motion")]
     public float move_speed;
     public float jump_force;
-    public Transform ceiling_check;
-    public Transform ground_check;
-    public LayerMask ground_object;
-    public float check_radius;
+    public float move_direction;
+    public bool is_jumping = false;
+    public bool is_grounded;
 
-    public Les_animations les_Animations;
-
- 
+    [Header("KnockBack")]
     public float knock_back;
     public float knock_back_length;
     public float knock_back_count;
     public bool knock_right;
 
+    [Header("Collision Checking")]
+    public Transform ceiling_check;
+    public Transform ground_check;
+    public LayerMask ground_object;
+    public float check_radius;
+
+    private Les_animations les_Animations;
     private Rigidbody2D rb;
-    public float move_direction;
-    public bool is_jumping = false;
-    public bool is_grounded;
 
     private void Awake()
     {
