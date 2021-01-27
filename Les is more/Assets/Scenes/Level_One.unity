@@ -653,13 +653,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 946642518}
-  - component: {fileID: 946642517}
   - component: {fileID: 946642516}
-  - component: {fileID: 946642515}
+  - component: {fileID: 946642517}
+  - component: {fileID: 946642519}
   - component: {fileID: 946642513}
+  - component: {fileID: 946642515}
   - component: {fileID: 946642512}
   - component: {fileID: 946642511}
-  - component: {fileID: 946642519}
   m_Layer: 0
   m_Name: SleepLes
   m_TagString: Player

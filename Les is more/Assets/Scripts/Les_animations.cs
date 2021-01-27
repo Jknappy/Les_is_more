@@ -6,20 +6,27 @@ public class Les_animations : MonoBehaviour
 {
     [Header("Les")]
     public bool is_les;
+    public float les_health_amount;
     public float les_move_speed;
+    public float les_jump_force;
 
     [Header("Sleepy")]
     public bool is_sleepy;
-    public bool sleepy_getting_up;
+    public float sleepy_health_amount;
     public float sleepy_move_speed;
+    public float sleepy_jump_force;
+    public bool sleepy_getting_up;
 
     [Header("Angry")]
     public bool is_angry;
+    public float angry_health_amount;
     public float angry_move_speed;
+    public float angry_jump_force;
 
     [Header("Components")]
     public Animator les_anim;
     public Animator sleepy_anim;
+    //public Animator angry_anim;
 
     public PlayerMovement pm;
     public Player_health ph;
@@ -33,13 +40,24 @@ public class Les_animations : MonoBehaviour
         if (is_les)
         {
             pm.move_speed = les_move_speed;
+            pm.jump_force = les_jump_force;
+            ph.starting_health = les_health_amount;
             les_anim = GetComponent<Animator>();
         }
         else if(is_sleepy)
         {
             pm.move_speed = sleepy_move_speed;
+            pm.jump_force = sleepy_jump_force;
+            ph.starting_health = sleepy_health_amount;
             sleepy_anim = GetComponent<Animator>();
-        }       
+        }
+        else if (is_angry)
+        {
+            pm.move_speed = angry_move_speed;
+            pm.jump_force = angry_jump_force;
+            ph.starting_health = angry_health_amount;
+            //angry_anim = GetComponent<Animimator>();
+        }
     }
 
     // Update is called once per frame

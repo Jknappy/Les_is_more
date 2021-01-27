@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{
-    [Header("Player Motion")]
+{   
+    [HideInInspector]
     public float move_speed;
+    [HideInInspector]
     public float jump_force;
+
+    [Header("Player Motion")]
     public float move_direction;
     public bool is_jumping = false;
     public bool is_grounded;
