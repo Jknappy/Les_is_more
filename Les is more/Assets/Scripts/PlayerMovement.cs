@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facing_right = true;
     private float move_direction;
     private bool is_jumping = false;
-    private bool is_grounded;
+    public bool is_grounded;
 
     private void Awake()
     {
