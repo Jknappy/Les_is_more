@@ -24,7 +24,7 @@ public class Player_health : MonoBehaviour
 
     private Les_animations les_anim;
     private PlayerMovement pm;
-    //public bool respawn_enemies = false;
+    public bool respawn_enemies = false;
 
     // Start is called before the first frame update
     void Start()

@@ -97,7 +97,7 @@ public class Les_animations : MonoBehaviour
         {
             Les_Attack();
         }
-        else if (is_sleepy)
+        else if (is_sleepy && !sleepy_anim.GetCurrentAnimatorStateInfo(0).IsName("sleepAttack"))
         {
             Sleepy_Attack();
         }

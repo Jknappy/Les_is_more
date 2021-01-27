@@ -257,14 +257,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93560629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.126, y: -0.015, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 946642518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &93560631
-CapsuleCollider2D:
+--- !u!58 &93560631
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -276,9 +276,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 0}
-  m_Size: {x: 0.3, y: 0.45}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &184002480
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +721,7 @@ MonoBehaviour:
   can_be_damaged: 0
   has_restarted: 0
   reached_goal: 0
+  respawn_enemies: 0
 --- !u!114 &946642515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,12 +852,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_les: 0
+  les_health_amount: 5
   les_move_speed: 1.5
+  les_jump_force: 0
   is_sleepy: 1
-  sleepy_getting_up: 0
+  sleepy_health_amount: 8
   sleepy_move_speed: 0.75
+  sleepy_jump_force: 175
+  sleepy_getting_up: 0
   is_angry: 0
-  angry_move_speed: 0
+  angry_health_amount: 3
+  angry_move_speed: 2
+  angry_jump_force: 0
   les_anim: {fileID: 2079592089}
   sleepy_anim: {fileID: 946642511}
   pm: {fileID: 946642515}
@@ -1645,13 +1652,12 @@ GameObject:
   - component: {fileID: 2079592085}
   - component: {fileID: 2079592084}
   - component: {fileID: 2079592086}
+  - component: {fileID: 2079592083}
   - component: {fileID: 2079592082}
   - component: {fileID: 2079592087}
   - component: {fileID: 2079592088}
   - component: {fileID: 2079592090}
   - component: {fileID: 2079592089}
-  - component: {fileID: 2079592091}
-  - component: {fileID: 2079592083}
   m_Layer: 0
   m_Name: Les
   m_TagString: Player
@@ -1699,12 +1705,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_les: 1
+  les_health_amount: 0
   les_move_speed: 1.5
+  les_jump_force: 325
   is_sleepy: 0
-  sleepy_getting_up: 0
+  sleepy_health_amount: 0
   sleepy_move_speed: 0.75
+  sleepy_jump_force: 0
+  sleepy_getting_up: 0
   is_angry: 0
+  angry_health_amount: 0
   angry_move_speed: 0
+  angry_jump_force: 0
   les_anim: {fileID: 2079592089}
   sleepy_anim: {fileID: 0}
   pm: {fileID: 2079592082}
@@ -1833,6 +1845,7 @@ MonoBehaviour:
   can_be_damaged: 0
   has_restarted: 0
   reached_goal: 0
+  respawn_enemies: 0
 --- !u!95 &2079592089
 Animator:
   serializedVersion: 3
@@ -1866,32 +1879,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   pm: {fileID: 0}
---- !u!61 &2079592091
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079592081}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.39, y: 0.45}
-    newSize: {x: 0.27, y: 0.43}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.41}
-  m_EdgeRadius: 0
 --- !u!1 &2143539401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,11 +2008,11 @@ PrefabInstance:
     - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: ph
       value: 
-      objectReference: {fileID: 2079592088}
+      objectReference: {fileID: 946642513}
     - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 2079592085}
+      objectReference: {fileID: 946642518}
     - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: purgatory
       value: 
@@ -2084,7 +2071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3034117805328522575, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
