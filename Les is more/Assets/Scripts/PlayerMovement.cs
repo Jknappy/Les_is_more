@@ -8,10 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public bool is_sleepy;
     public bool is_angry;
 
-    //sleepy
-    public bool has_jumped;
-    public Les_attack la;
-
     public float move_speed;
     public float jump_force;
     public Transform ceiling_check;
@@ -103,60 +99,40 @@ public class PlayerMovement : MonoBehaviour
         //set up switch statements for each player
         //process inputs
         move_direction = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump") && is_grounded)
+
+        //les
+        if (Input.GetButtonDown("Jump") && is_grounded && is_les)
         {
             anim.SetTrigger("TakeOff");
             is_jumping = true;                    
         }
 
-        //les
-        if (is_grounded == true && is_les)
-        {
-            anim.SetBool("Jumping", false);
-        }
-        else
-        {
-            anim.SetBool("Jumping", true);
-        }
-
         //sleepy
-        if (is_grounded == true && is_sleepy)
+        if (Input.GetButtonDown("Jump") && is_grounded && is_sleepy)
+        {
+            anim.SetTrigger("Jumping");
+            is_jumping = true;
+        }
+
+        //les
+        if (is_grounded == true)
         {
             anim.SetBool("Jumping", false);
         }
         else
         {
             anim.SetBool("Jumping", true);
-            //sleepy cant attack
-            has_jumped = true;
-            if (is_grounded)
-            {
-                StartCoroutine (Sleepy_cant_move_attack());
-            }            
-        }
-
-        IEnumerator Sleepy_cant_move_attack()
-        {
-            if(has_jumped == true && is_grounded == true)
-            {
-                //TO DO
-                //sleepy cant move or jump
-                la.can_attack = false;
-                yield return new WaitForSeconds(1.5f);
-            }
-            la.can_attack = true;
-            has_jumped = false;
         }
 
         //les
-        //if (is_les && is_jumping == false && is_grounded == false)
-        //{
-        //    anim.SetBool("Falling", true);
-        //}
-        //else
-        //{
-        //    anim.SetBool("Falling", false);
-        //}
+        if (is_les && is_jumping == false && is_grounded == false)
+        {
+            anim.SetBool("Falling", true);
+        }
+        else
+        {
+            anim.SetBool("Falling", false);
+        }
     }
 
     private void Animate()
@@ -172,6 +148,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //sleepy
+        //TO DO 
+        //no flip until animation is over 
         if (move_direction > 0 && !facing_right && is_sleepy && is_grounded)
         {
             FlipCharacter();

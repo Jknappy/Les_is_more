@@ -8,7 +8,6 @@ public class Les_attack : MonoBehaviour
     public Animator animator;
     public PlayerMovement pm;
 
-    public bool can_attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +24,7 @@ public class Les_attack : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && can_attack)
+        if (Input.GetKeyDown(KeyCode.Space) && pm.is_les)
         {
             animator.SetTrigger("Attack");
             if (pm.is_grounded)
@@ -38,6 +37,21 @@ public class Les_attack : MonoBehaviour
         {
             yield return new WaitForSeconds(.5f);
             pm.move_speed = 1.5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && pm.is_sleepy)
+        {
+            animator.SetTrigger("Attack");
+            if (pm.is_grounded)
+            {
+                pm.move_speed = 0f;
+                StartCoroutine(Sleepy_Attack_Stall());
+            }
+        }
+        IEnumerator Sleepy_Attack_Stall()
+        {
+            yield return new WaitForSeconds(2f);
+            pm.move_speed = .75f;
         }
     }
 }

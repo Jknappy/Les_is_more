@@ -727,7 +727,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 946642511}
   pm: {fileID: 0}
-  can_attack: 1
 --- !u!114 &946642513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_health_amount: {fileID: 0}
-  starting_health: 3
+  starting_health: 6
   player_health: 0
   has_been_damaged: 0
   has_restarted: 0
@@ -780,8 +779,6 @@ MonoBehaviour:
   is_les: 0
   is_sleepy: 1
   is_angry: 0
-  has_jumped: 0
-  la: {fileID: 946642512}
   move_speed: 0.75
   jump_force: 175
   ceiling_check: {fileID: 1258063931}
@@ -1696,8 +1693,6 @@ MonoBehaviour:
   is_les: 1
   is_sleepy: 0
   is_angry: 0
-  has_jumped: 0
-  la: {fileID: 946642512}
   move_speed: 1.5
   jump_force: 325
   ceiling_check: {fileID: 1352965144}
@@ -1870,7 +1865,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2079592089}
   pm: {fileID: 0}
-  can_attack: 1
 --- !u!61 &2079592091
 BoxCollider2D:
   m_ObjectHideFlags: 0
