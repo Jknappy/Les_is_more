@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {   
-    [HideInInspector]
+    //[HideInInspector]
     public float move_speed;
-    [HideInInspector]
+    //[HideInInspector]
     public float jump_force;
 
     [Header("Player Motion")]
