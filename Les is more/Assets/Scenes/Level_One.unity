@@ -860,10 +860,11 @@ MonoBehaviour:
   les_y_axis_knock_back: 0
   is_sleepy: 1
   sleepy_health_amount: 8
+  sleepy_air_speed: 1.5
   sleepy_move_speed: 0.75
   sleepy_jump_force: 175
   sleepy_getting_up: 0
-  sleepy_x_axis_knock_back: 5
+  sleepy_x_axis_knock_back: 6.5
   sleepy_y_axis_knock_back: 0.5
   is_angry: 0
   angry_health_amount: 3
@@ -1720,6 +1721,7 @@ MonoBehaviour:
   les_y_axis_knock_back: 1
   is_sleepy: 0
   sleepy_health_amount: 0
+  sleepy_air_speed: 0
   sleepy_move_speed: 0.75
   sleepy_jump_force: 0
   sleepy_getting_up: 0
@@ -2031,6 +2033,10 @@ PrefabInstance:
       propertyPath: purgatory
       value: 
       objectReference: {fileID: 2143539401}
+    - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
+      propertyPath: knock_back
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: target_range
       value: 2

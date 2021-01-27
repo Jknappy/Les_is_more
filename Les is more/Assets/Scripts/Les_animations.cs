@@ -15,6 +15,7 @@ public class Les_animations : MonoBehaviour
     [Header("Sleepy")]
     public bool is_sleepy;
     public float sleepy_health_amount;
+    public float sleepy_air_speed;
     public float sleepy_move_speed;
     public float sleepy_jump_force;
     public bool sleepy_getting_up;
@@ -101,11 +102,16 @@ public class Les_animations : MonoBehaviour
                 sleepy_getting_up = true;
                 pm.move_speed = 0;
             }
-            else
+            else if(pm.is_grounded == false)
+            {
+                pm.move_speed = sleepy_air_speed;
+            }
+            else 
             {
                 sleepy_getting_up = false;
                 pm.move_speed = sleepy_move_speed;
             }
+
         }
     }
 
@@ -249,10 +255,12 @@ public class Les_animations : MonoBehaviour
         if (pm.is_grounded == true)
         {
             sleepy_anim.SetBool("Jumping", false);
+
         }
         else
         {
-            sleepy_anim.SetBool("Jumping", true);         
+            sleepy_anim.SetBool("Jumping", true);
+            
         }
     }
 
