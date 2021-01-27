@@ -6,10 +6,12 @@ public class Les_attack : MonoBehaviour
 {
     //public GameObject weapon;
     public Animator animator;
+    public PlayerMovement pm;
 
     // Start is called before the first frame update
     void Start()
     {
+        pm = GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
         //weapon.GetComponent<GameObject>();
     }
@@ -18,10 +20,18 @@ public class Les_attack : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //attack
+        {          
             animator.SetTrigger("Attack");
-            //Attack();
+            if (pm.is_grounded)
+            {
+                pm.move_speed = 0f;
+                StartCoroutine(Les_Attack_Stall());
+            }                       
+        }
+        IEnumerator Les_Attack_Stall()
+        {           
+            yield return new WaitForSeconds(.5f);
+            pm.move_speed = 1.5f;
         }
     }
 
