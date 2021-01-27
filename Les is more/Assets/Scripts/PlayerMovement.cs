@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool is_les;
+    public bool is_sleepy;
+    public bool is_angry;
+
+    //sleepy
+    public bool has_jumped;
+    public Les_attack la;
+
     public float move_speed;
     public float jump_force;
     public Transform ceiling_check;
@@ -57,11 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         is_grounded = Physics2D.OverlapCircle(ground_check.position, check_radius, ground_object);
-        //if (is_grounded)
-        //{
-        //    jump_count = max_jump_count;
-        //}
-
+        
         Move();
     }
 
@@ -96,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ProcessInputs()
     {
+        //set up switch statements for each player
         //process inputs
         move_direction = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && is_grounded)
@@ -104,7 +109,8 @@ public class PlayerMovement : MonoBehaviour
             is_jumping = true;                    
         }
 
-        if (is_grounded == true)
+        //les
+        if (is_grounded == true && is_les)
         {
             anim.SetBool("Jumping", false);
         }
@@ -113,24 +119,64 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Jumping", true);
         }
 
-        if(is_jumping == false && is_grounded == false)
+        //sleepy
+        if (is_grounded == true && is_sleepy)
         {
-            anim.SetBool("Falling", true);
+            anim.SetBool("Jumping", false);
         }
         else
         {
-            anim.SetBool("Falling", false);
+            anim.SetBool("Jumping", true);
+            //sleepy cant attack
+            has_jumped = true;
+            if (is_grounded)
+            {
+                StartCoroutine (Sleepy_cant_move_attack());
+            }            
         }
+
+        IEnumerator Sleepy_cant_move_attack()
+        {
+            if(has_jumped == true && is_grounded == true)
+            {
+                //TO DO
+                //sleepy cant move or jump
+                la.can_attack = false;
+                yield return new WaitForSeconds(1.5f);
+            }
+            la.can_attack = true;
+            has_jumped = false;
+        }
+
+        //les
+        //if (is_les && is_jumping == false && is_grounded == false)
+        //{
+        //    anim.SetBool("Falling", true);
+        //}
+        //else
+        //{
+        //    anim.SetBool("Falling", false);
+        //}
     }
 
     private void Animate()
     {
-        //animate
-        if (move_direction > 0 && !facing_right)
+        //les
+        if (move_direction > 0 && !facing_right && is_les)
         {
             FlipCharacter();
         }
-        else if (move_direction < 0 && facing_right)
+        else if (move_direction < 0 && facing_right && is_les)
+        {
+            FlipCharacter();
+        }
+
+        //sleepy
+        if (move_direction > 0 && !facing_right && is_sleepy && is_grounded)
+        {
+            FlipCharacter();
+        }
+        else if (move_direction < 0 && facing_right && is_sleepy && is_grounded)
         {
             FlipCharacter();
         }

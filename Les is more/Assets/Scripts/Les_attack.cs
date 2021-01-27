@@ -8,6 +8,7 @@ public class Les_attack : MonoBehaviour
     public Animator animator;
     public PlayerMovement pm;
 
+    public bool can_attack;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class Les_attack : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && can_attack)
         {
             animator.SetTrigger("Attack");
             if (pm.is_grounded)
