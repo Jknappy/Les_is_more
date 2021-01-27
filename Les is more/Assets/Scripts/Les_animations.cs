@@ -97,7 +97,7 @@ public class Les_animations : MonoBehaviour
         {
             Les_Attack();
         }
-        else if (is_sleepy && !sleepy_anim.GetCurrentAnimatorStateInfo(0).IsName("sleepAttack"))
+        else if (is_sleepy && !sleepy_anim.GetCurrentAnimatorStateInfo(0).IsName("sleepAttack")&& pm.is_grounded)
         {
             Sleepy_Attack();
         }
