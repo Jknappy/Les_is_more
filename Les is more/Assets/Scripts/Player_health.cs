@@ -9,6 +9,8 @@ public class Player_health : MonoBehaviour
     public float starting_health;
     public float player_health;
 
+    public Les_animations les_anim;
+
     public bool has_been_damaged = false;
     public bool has_restarted;
     public bool reached_goal = false;
@@ -26,6 +28,8 @@ public class Player_health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        les_anim = GetComponent<Les_animations>();
+
         anim = GetComponent<Animator>();
         pm = GetComponent<PlayerMovement>();
         respawn = GetComponent<Respawn>();
@@ -59,7 +63,7 @@ public class Player_health : MonoBehaviour
             {
                 pm.knock_right = false;
             }
-            anim.SetTrigger("Recoil");
+            les_anim.Les_Recoil();
             pm.knock_back_count = pm.knock_back_length;
             has_been_damaged = true;
         }
@@ -81,7 +85,7 @@ public class Player_health : MonoBehaviour
         this.transform.position = spawn_point.transform.position;
         player_health = starting_health;
 
-        anim.SetTrigger("Idle");
+        les_anim.Les_Idle();
 
         //dumb way to do this but lets see if it works 
         StartCoroutine(Wait_For_Enemy_Respawn());    

@@ -5,15 +5,15 @@ using UnityEngine;
 public class Les_attack : MonoBehaviour
 {
     //public GameObject weapon;
-    public Animator animator;
+    public Les_animations les_anim;
+
     public PlayerMovement pm;
 
     // Start is called before the first frame update
     void Start()
     {
+        les_anim = GetComponent<Les_animations>();
         pm = GetComponent<PlayerMovement>();
-        animator = GetComponent<Animator>();
-        //weapon.GetComponent<GameObject>();
     }
 
     // Update is called once per frame
@@ -24,34 +24,24 @@ public class Les_attack : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && pm.is_les)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetTrigger("Attack");
-            if (pm.is_grounded)
-            {
-                pm.move_speed = 0f;
-                StartCoroutine(Les_Attack_Stall());
-            }
-        }
-        IEnumerator Les_Attack_Stall()
-        {
-            yield return new WaitForSeconds(.5f);
-            pm.move_speed = 1.5f;
+            les_anim.Les_Attack();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && pm.is_sleepy)
-        {
-            animator.SetTrigger("Attack");
-            if (pm.is_grounded)
-            {
-                pm.move_speed = 0f;
-                StartCoroutine(Sleepy_Attack_Stall());
-            }
-        }
-        IEnumerator Sleepy_Attack_Stall()
-        {
-            yield return new WaitForSeconds(2f);
-            pm.move_speed = .75f;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && pm.is_sleepy)
+        //{
+        //    les_anim.Sleepy_Attack();
+        //    if (pm.is_grounded)
+        //    {
+        //        pm.move_speed = 0f;
+        //        StartCoroutine(Sleepy_Attack_Stall());
+        //    }
+        //}
+        //IEnumerator Sleepy_Attack_Stall()
+        //{
+        //    yield return new WaitForSeconds(2f);
+        //    pm.move_speed = .75f;
+        //}
     }
 }

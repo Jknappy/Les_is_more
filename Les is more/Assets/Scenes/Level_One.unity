@@ -661,13 +661,14 @@ GameObject:
   - component: {fileID: 946642512}
   - component: {fileID: 946642511}
   - component: {fileID: 946642510}
+  - component: {fileID: 946642519}
   m_Layer: 0
   m_Name: SleepLes
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &946642510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -725,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23ab9fe2805d490d871b14154034634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 946642511}
+  les_anim: {fileID: 0}
   pm: {fileID: 0}
 --- !u!114 &946642513
 MonoBehaviour:
@@ -742,6 +743,7 @@ MonoBehaviour:
   player_health_amount: {fileID: 0}
   starting_health: 6
   player_health: 0
+  les_anim: {fileID: 0}
   has_been_damaged: 0
   has_restarted: 0
   reached_goal: 0
@@ -776,9 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf5e160cee084cb390b57a0e02eae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_les: 0
-  is_sleepy: 1
-  is_angry: 0
+  les_anim: {fileID: 0}
   move_speed: 0.75
   jump_force: 175
   ceiling_check: {fileID: 1258063931}
@@ -787,11 +787,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   check_radius: 0.02
-  anim: {fileID: 946642511}
   knock_back: 5
   knock_back_length: 0.05
   knock_back_count: 0
   knock_right: 0
+  move_direction: 0
+  is_jumping: 0
   is_grounded: 0
 --- !u!50 &946642516
 Rigidbody2D:
@@ -883,6 +884,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946642519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946642509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d322ef82c32794cd0b2f5f4fafaa93b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  les_anim: {fileID: 0}
+  sleepy_anim: {fileID: 0}
+  is_les: 0
+  is_sleepy: 0
+  is_angry: 0
+  pm: {fileID: 0}
+  ph: {fileID: 0}
+  la: {fileID: 0}
+  facing_right: 1
 --- !u!1 &1030086133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,13 +1693,14 @@ GameObject:
   - component: {fileID: 2079592090}
   - component: {fileID: 2079592089}
   - component: {fileID: 2079592091}
+  - component: {fileID: 2079592083}
   m_Layer: 0
   m_Name: Les
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2079592082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,9 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf5e160cee084cb390b57a0e02eae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_les: 1
-  is_sleepy: 0
-  is_angry: 0
+  les_anim: {fileID: 2079592083}
   move_speed: 1.5
   jump_force: 325
   ceiling_check: {fileID: 1352965144}
@@ -1701,12 +1722,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   check_radius: 0.02
-  anim: {fileID: 2079592089}
   knock_back: 5
   knock_back_length: 0.05
   knock_back_count: 0
   knock_right: 0
+  move_direction: 0
+  is_jumping: 0
   is_grounded: 0
+--- !u!114 &2079592083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079592081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d322ef82c32794cd0b2f5f4fafaa93b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  les_anim: {fileID: 2079592089}
+  sleepy_anim: {fileID: 0}
+  is_les: 1
+  is_sleepy: 0
+  is_angry: 0
+  pm: {fileID: 2079592082}
+  ph: {fileID: 2079592088}
+  la: {fileID: 2079592090}
+  facing_right: 1
 --- !u!212 &2079592084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1766,7 +1809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079592081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 0.725, z: 0}
+  m_LocalPosition: {x: -0.029, y: 0.725, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1721980818}
@@ -1823,6 +1866,7 @@ MonoBehaviour:
   player_health_amount: {fileID: 0}
   starting_health: 3
   player_health: 0
+  les_anim: {fileID: 0}
   has_been_damaged: 0
   has_restarted: 0
   reached_goal: 0
@@ -1863,7 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23ab9fe2805d490d871b14154034634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2079592089}
+  les_anim: {fileID: 2079592083}
   pm: {fileID: 0}
 --- !u!61 &2079592091
 BoxCollider2D:
@@ -1962,7 +2006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452766, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_RootOrder
