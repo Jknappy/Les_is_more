@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public bool is_grounded;
 
     [Header("KnockBack")]
-    public float knock_back;
     public float knock_back_length;
     public float knock_back_count;
     public bool knock_right;
+    public float x_axis_knock_back;
+    public float y_axis_knock_back;
 
     [Header("Collision Checking")]
     public Transform ceiling_check;
@@ -31,14 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        les_Animations = GetComponent<Les_animations>();
+        
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        les_Animations = GetComponent<Les_animations>();
     }
 
     // Update is called once per frame
@@ -71,12 +72,12 @@ public class PlayerMovement : MonoBehaviour
             if (knock_right)
             {
                 //the number at the end is the y value for knock back amount
-                rb.velocity = new Vector2(-knock_back, 1);
+                rb.velocity = new Vector2(-x_axis_knock_back, y_axis_knock_back);
                 knock_back_count -= Time.deltaTime;
             }
             if (!knock_right)
             {
-                rb.velocity = new Vector2(knock_back, 1);
+                rb.velocity = new Vector2(x_axis_knock_back, y_axis_knock_back);
                 knock_back_count -= Time.deltaTime;
             }
         }

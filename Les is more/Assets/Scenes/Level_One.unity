@@ -739,10 +739,11 @@ MonoBehaviour:
   move_direction: 0
   is_jumping: 0
   is_grounded: 0
-  knock_back: 5
   knock_back_length: 0.05
   knock_back_count: 0
   knock_right: 0
+  x_axis_knock_back: 0
+  y_axis_knock_back: 0
   ceiling_check: {fileID: 1258063931}
   ground_check: {fileID: 2069200885}
   ground_object:
@@ -855,15 +856,21 @@ MonoBehaviour:
   les_health_amount: 5
   les_move_speed: 1.5
   les_jump_force: 0
+  les_x_axis_knock_back: 0
+  les_y_axis_knock_back: 0
   is_sleepy: 1
   sleepy_health_amount: 8
   sleepy_move_speed: 0.75
   sleepy_jump_force: 175
   sleepy_getting_up: 0
+  sleepy_x_axis_knock_back: 5
+  sleepy_y_axis_knock_back: 0.5
   is_angry: 0
   angry_health_amount: 3
   angry_move_speed: 2
   angry_jump_force: 0
+  angry_x_axis_knock_back: 0
+  angry_y_axis_knock_back: 0
   les_anim: {fileID: 2079592089}
   sleepy_anim: {fileID: 946642511}
   pm: {fileID: 946642515}
@@ -1682,10 +1689,11 @@ MonoBehaviour:
   move_direction: 0
   is_jumping: 0
   is_grounded: 0
-  knock_back: 5
   knock_back_length: 0.05
   knock_back_count: 0
   knock_right: 0
+  x_axis_knock_back: 0
+  y_axis_knock_back: 0
   ceiling_check: {fileID: 1352965144}
   ground_check: {fileID: 2040630250}
   ground_object:
@@ -1708,15 +1716,21 @@ MonoBehaviour:
   les_health_amount: 0
   les_move_speed: 1.5
   les_jump_force: 325
+  les_x_axis_knock_back: 5
+  les_y_axis_knock_back: 1
   is_sleepy: 0
   sleepy_health_amount: 0
   sleepy_move_speed: 0.75
   sleepy_jump_force: 0
   sleepy_getting_up: 0
+  sleepy_x_axis_knock_back: 5
+  sleepy_y_axis_knock_back: 0.5
   is_angry: 0
   angry_health_amount: 0
   angry_move_speed: 0
   angry_jump_force: 0
+  angry_x_axis_knock_back: 0
+  angry_y_axis_knock_back: 0
   les_anim: {fileID: 2079592089}
   sleepy_anim: {fileID: 0}
   pm: {fileID: 2079592082}

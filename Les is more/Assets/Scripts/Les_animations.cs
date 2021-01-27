@@ -9,6 +9,8 @@ public class Les_animations : MonoBehaviour
     public float les_health_amount;
     public float les_move_speed;
     public float les_jump_force;
+    public float les_x_axis_knock_back;
+    public float les_y_axis_knock_back;
 
     [Header("Sleepy")]
     public bool is_sleepy;
@@ -16,12 +18,16 @@ public class Les_animations : MonoBehaviour
     public float sleepy_move_speed;
     public float sleepy_jump_force;
     public bool sleepy_getting_up;
+    public float sleepy_x_axis_knock_back;
+    public float sleepy_y_axis_knock_back;
 
     [Header("Angry")]
     public bool is_angry;
     public float angry_health_amount;
     public float angry_move_speed;
     public float angry_jump_force;
+    public float angry_x_axis_knock_back;
+    public float angry_y_axis_knock_back;
 
     [Header("Components")]
     public Animator les_anim;
@@ -41,6 +47,10 @@ public class Les_animations : MonoBehaviour
         {
             pm.move_speed = les_move_speed;
             pm.jump_force = les_jump_force;
+
+            pm.x_axis_knock_back = les_x_axis_knock_back;
+            pm.y_axis_knock_back = les_y_axis_knock_back;
+
             ph.starting_health = les_health_amount;
             les_anim = GetComponent<Animator>();
         }
@@ -48,6 +58,10 @@ public class Les_animations : MonoBehaviour
         {
             pm.move_speed = sleepy_move_speed;
             pm.jump_force = sleepy_jump_force;
+
+            pm.x_axis_knock_back = sleepy_x_axis_knock_back;
+            pm.y_axis_knock_back = sleepy_y_axis_knock_back;
+
             ph.starting_health = sleepy_health_amount;
             sleepy_anim = GetComponent<Animator>();
         }
@@ -55,6 +69,10 @@ public class Les_animations : MonoBehaviour
         {
             pm.move_speed = angry_move_speed;
             pm.jump_force = angry_jump_force;
+
+            pm.x_axis_knock_back = angry_x_axis_knock_back;
+            pm.y_axis_knock_back = angry_y_axis_knock_back;
+
             ph.starting_health = angry_health_amount;
             //angry_anim = GetComponent<Animimator>();
         }
@@ -182,6 +200,10 @@ public class Les_animations : MonoBehaviour
         if (is_les)
         {
             les_anim.SetTrigger("Recoil");
+        }
+        if (is_sleepy)
+        {
+            sleepy_anim.SetTrigger("Recoil");
         }
     }
 
