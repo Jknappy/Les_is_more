@@ -653,9 +653,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 946642518}
-  - component: {fileID: 946642519}
   - component: {fileID: 946642516}
   - component: {fileID: 946642517}
+  - component: {fileID: 946642519}
   - component: {fileID: 946642513}
   - component: {fileID: 946642515}
   - component: {fileID: 946642512}
@@ -815,7 +815,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33, y: 0.44}
+  m_Size: {x: 0.27, y: 0.43}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -852,7 +852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_les: 0
-<<<<<<< Updated upstream
   les_health_amount: 5
   les_move_speed: 1.5
   les_jump_force: 0
@@ -864,19 +863,6 @@ MonoBehaviour:
   is_angry: 0
   angry_health_amount: 3
   angry_move_speed: 2
-=======
-  les_health_amount: 0
-  les_move_speed: 1.5
-  les_jump_force: 0
-  is_sleepy: 1
-  sleepy_health_amount: 0
-  sleepy_move_speed: 0.75
-  sleepy_jump_force: 0
-  sleepy_getting_up: 0
-  is_angry: 0
-  angry_health_amount: 0
-  angry_move_speed: 0
->>>>>>> Stashed changes
   angry_jump_force: 0
   les_anim: {fileID: 2079592089}
   sleepy_anim: {fileID: 946642511}
@@ -1664,23 +1650,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2079592085}
-  - component: {fileID: 2079592083}
-  - component: {fileID: 2079592082}
   - component: {fileID: 2079592084}
   - component: {fileID: 2079592086}
-<<<<<<< Updated upstream
   - component: {fileID: 2079592083}
   - component: {fileID: 2079592082}
-=======
->>>>>>> Stashed changes
   - component: {fileID: 2079592087}
   - component: {fileID: 2079592088}
   - component: {fileID: 2079592090}
   - component: {fileID: 2079592089}
-<<<<<<< Updated upstream
-=======
-  - component: {fileID: 2079592091}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Les
   m_TagString: Player
@@ -1730,11 +1707,7 @@ MonoBehaviour:
   is_les: 1
   les_health_amount: 0
   les_move_speed: 1.5
-<<<<<<< Updated upstream
   les_jump_force: 325
-=======
-  les_jump_force: 0
->>>>>>> Stashed changes
   is_sleepy: 0
   sleepy_health_amount: 0
   sleepy_move_speed: 0.75
