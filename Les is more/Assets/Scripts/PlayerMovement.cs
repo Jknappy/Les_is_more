@@ -11,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask ground_object;
     public float check_radius;
     public Animator anim;
-
-    public bool les_attacking = false;
  
     public float knock_back;
     public float knock_back_length;
@@ -21,9 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool facing_right = true;
-    public float move_direction;
+    private float move_direction;
     private bool is_jumping = false;
-    public bool is_grounded;
+    private bool is_grounded;
 
     private void Awake()
     {
@@ -83,26 +81,23 @@ public class PlayerMovement : MonoBehaviour
         {
             if (knock_right)
             {
-                rb.velocity = new Vector2(-knock_back, .5f);
+                rb.velocity = new Vector2(-knock_back, 1);
                 knock_back_count -= Time.deltaTime;
             }
             if (!knock_right)
             {
-                rb.velocity = new Vector2(knock_back, .5f);
+                rb.velocity = new Vector2(knock_back, 1);
                 knock_back_count -= Time.deltaTime;
             }
         }
+
 
     }
 
     private void ProcessInputs()
     {
         //process inputs
-        if(les_attacking == false)
-        {
-            move_direction = Input.GetAxis("Horizontal");
-        }
-        
+        move_direction = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
             anim.SetTrigger("TakeOff");
