@@ -12,7 +12,7 @@ public class GameMaster : MonoBehaviour
     public string start_menu = "StartMenu";
     public string level_One = "Level_One";
 
-    public bool found_les = false;
+    public bool found_players = false;
 
     public Player_health ph;
     public GameObject go;
@@ -40,17 +40,17 @@ public class GameMaster : MonoBehaviour
         Scene current_scene = SceneManager.GetActiveScene();
         scene_name = current_scene.name;
 
-        if (scene_name == "Level_One" && found_les == false)
+        if (scene_name == "Level_One" && found_players == false)
         {
             FindLes();
         }
 
         if (scene_name == "StartMenu")
         {
-            found_les = false;
+            found_players = false;
         }
 
-        if (found_les)
+        if (found_players)
         {
             //if (ph.has_restarted)
             //{
@@ -96,8 +96,8 @@ public class GameMaster : MonoBehaviour
 
     void FindLes()
     {
-        found_les = true;    
-        go = GameObject.Find("Les");
+        found_players = true;    
+        go = GameObject.Find("Players");
         ph = go.GetComponent<Player_health>();
                                
     }

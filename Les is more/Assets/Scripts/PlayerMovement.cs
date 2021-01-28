@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float check_radius;
 
     private Les_animations les_Animations;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     private void Awake()
     {
@@ -61,14 +61,15 @@ public class PlayerMovement : MonoBehaviour
         if (knock_back_count <= 0)
         {
             rb.velocity = new Vector2(move_direction * move_speed, rb.velocity.y);
+
             if (is_jumping)
             {
                 rb.AddForce(new Vector2(0f, jump_force));
-                if (les_Animations.is_les)
+                if (les_Animations.is_les || les_Animations.is_angry)
                 {
                     les_Animations.Les_Take_Off();
                 }
-                is_jumping = false;              
+                is_jumping = false;
             }
         }
         else

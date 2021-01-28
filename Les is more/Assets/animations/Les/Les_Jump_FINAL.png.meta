@@ -216,7 +216,7 @@ TextureImporter:
         width: 70
         height: 67
       alignment: 9
-      pivot: {x: 0.5, y: 0.33582088}
+      pivot: {x: 0.5, y: 0.3358209}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,7 +253,7 @@ TextureImporter:
       name: Les_Jump_FINAL_5
       rect:
         serializedVersion: 2
-        x: 350
+        x: 349
         y: 0
         width: 70
         height: 67

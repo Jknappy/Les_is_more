@@ -340,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184002480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.08, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.079, z: 0}
   m_LocalScale: {x: 0.5, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -695,6 +695,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9086203727416864977, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
   m_PrefabInstance: {fileID: 9086203728363539809}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &592833929 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4171108957438379181, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+  m_PrefabInstance: {fileID: 949798503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &592833934 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4171108957438379159, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+  m_PrefabInstance: {fileID: 949798503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &666551729
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +821,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1251275288}
     m_Modifications:
+    - target: {fileID: 4171108957104086851, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379157, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -856,8 +870,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: les_anim
+      value: 
+      objectReference: {fileID: 592833929}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: angry_anim
+      value: 
+      objectReference: {fileID: 592833929}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: angry_jump_force
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: x_axis_dash_force
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: dash_attack_length
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: angry_health_amount
@@ -875,6 +905,10 @@ PrefabInstance:
       propertyPath: ph
       value: 
       objectReference: {fileID: 313169384}
+    - target: {fileID: 4171108957438379177, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 592833934}
     - target: {fileID: 4171108957438379177, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: check_radius
       value: 0.07
@@ -1034,8 +1068,8 @@ Transform:
   m_LocalPosition: {x: -1.3, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 313169390}
   - {fileID: 2079592085}
+  - {fileID: 313169390}
   - {fileID: 1412883705}
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -1830,7 +1864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452766, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_RootOrder
@@ -2033,6 +2067,14 @@ PrefabInstance:
     - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: les_health_amount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: x_axis_dash_force
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: dash_attack_length
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077045, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: check_radius

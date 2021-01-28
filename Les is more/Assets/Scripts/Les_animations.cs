@@ -29,10 +29,17 @@ public class Les_animations : MonoBehaviour
     public float angry_jump_force;
     public float angry_x_axis_knock_back;
     public float angry_y_axis_knock_back;
+    public bool angry_landing;
+
+    public float dash_attack_length;
+    public float dash_attack_count;
+    public bool dash_right;
+    public float x_axis_dash_force;
 
     [Header("Components")]
     public Animator les_anim;
     public Animator sleepy_anim;
+    public Animator angry_anim;
     //public Animator angry_anim;
 
     public PlayerMovement pm;
@@ -75,7 +82,7 @@ public class Les_animations : MonoBehaviour
             pm.y_axis_knock_back = angry_y_axis_knock_back;
 
             ph.starting_health = angry_health_amount;
-            //angry_anim = GetComponent<Animimator>();
+            angry_anim = GetComponent<Animator>();
         }
     }
 
@@ -111,7 +118,24 @@ public class Les_animations : MonoBehaviour
                 sleepy_getting_up = false;
                 pm.move_speed = sleepy_move_speed;
             }
+        }
+        else if (is_angry)
+        {
+            Angry_Jump();
+            Angry_Falling();
+            Angry_Running();
+            Flip_Angry();
 
+            if(angry_anim.GetCurrentAnimatorStateInfo(0).IsName("angryLanding") && pm.is_grounded)
+            {
+                angry_landing = true;
+                pm.move_speed = 0;
+            }
+            else
+            {
+                angry_landing = false;
+                pm.move_speed = angry_move_speed;
+            }
         }
     }
 
@@ -125,9 +149,9 @@ public class Les_animations : MonoBehaviour
         {
             Sleepy_Attack();
         }
-        if (is_angry)
+        else if (is_angry)
         {
-            //Angry_Attack();
+            Angry_Attack();
         }
     }
 
@@ -210,6 +234,10 @@ public class Les_animations : MonoBehaviour
         if (is_sleepy)
         {
             sleepy_anim.SetTrigger("Recoil");
+        }
+        if (is_angry)
+        {
+            angry_anim.SetTrigger("Recoil");
         }
     }
 
@@ -296,4 +324,105 @@ public class Les_animations : MonoBehaviour
         facing_right = !facing_right;
         transform.Rotate(0f, 180f, 0f);
     }
+
+    //Angry
+    public void Angry_Attack()
+    {
+        angry_anim.SetTrigger("Attack");
+        Debug.Log("attacking");
+
+        //not sure why i cant get him to move yet 
+        pm.rb.velocity = new Vector2(pm.move_direction * x_axis_dash_force, 0);
+    }
+
+    public void Angry_Running()
+    {
+        if (pm.move_direction == 0)
+        {
+            angry_anim.SetBool("Running", false);
+        }
+        else
+        {
+            angry_anim.SetBool("Running", true);
+        }
+    }
+
+    public void Flip_Angry()
+    {
+        if (pm.is_grounded)
+        {
+            if (pm.move_direction > 0 && !facing_right)
+            {
+                Angry_Flip_Sprite();
+            }
+            else if (pm.move_direction < 0 && facing_right)
+            {
+                Angry_Flip_Sprite();
+            }
+        }
+    }
+
+    public void Angry_Flip_Sprite()
+    {
+        facing_right = !facing_right;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+    //public void Angry_Take_Off()
+    //{
+    //    if (pm.is_jumping)
+    //    {
+    //        angry_anim.SetTrigger("TakeOff");
+    //    }
+    //}
+
+    public void Angry_Jump()
+    {
+        if (pm.is_grounded == true)
+        {
+            angry_anim.SetBool("Jumping", false);
+        }
+        else
+        {
+            angry_anim.SetBool("Jumping", true);
+        }
+    }
+
+    public void Angry_Falling()
+    {
+        if (pm.is_jumping == false && pm.is_grounded == false)
+        {
+            angry_anim.SetBool("Falling", true);
+        }
+        else
+        {
+            angry_anim.SetBool("Falling", false);
+        }
+    }
+
+    public void Angry_Take_Off()
+    {
+        if (pm.is_jumping)
+        {
+            les_anim.SetTrigger("TakeOff");
+        }
+    }
 }
+
+//dash_attack_count = dash_attack_length;
+//if (dash_attack_count >= 0)
+//{
+//    if (facing_right)
+//    {
+//        dash_right = true;
+//        //the number at the end is the y value for knock back amount
+//        pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
+//        dash_attack_count -= Time.deltaTime;
+//    }
+//    if (!facing_right)
+//    {
+//        dash_right = false;
+//        pm.rb.AddForce(new Vector2(-x_axis_dash_force, 0));
+//        dash_attack_count -= Time.deltaTime;
+//    }
+//}
