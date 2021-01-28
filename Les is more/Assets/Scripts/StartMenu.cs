@@ -7,29 +7,30 @@ public class StartMenu : MonoBehaviour
 {
     public string Level_One = "Level_One";
 
-    public GameObject game_master;
-    public GameMaster gm;
+    public bool start_les = false;
+    public bool chose_les = false;
+    public bool chose_sleepy = false;
+    public bool chose_angry = false;
 
     public void StartLes()
     {
-        game_master = GameObject.Find("GameManager");
-        gm = game_master.GetComponent<GameMaster>();
-        SceneManager.LoadScene(Level_One);       
+        start_les = true;
+        //SceneManager.LoadScene(Level_One);       
     }
 
     public void Selected_Les()
     {
-        gm.chose_les = true;
+        chose_les = true;
     }
 
     public void Selected_Sleepy()
     {
-        gm.chose_sleepy = true;
+        chose_sleepy = true;
     }
 
     public void Selected_Angry()
     {
-        gm.chose_angry = true;
+        chose_angry = true;
     }
 
 }
