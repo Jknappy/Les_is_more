@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4171108957438379157
 Transform:
   m_ObjectHideFlags: 0
@@ -193,9 +193,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3.5
   m_Material: {fileID: 6200000, guid: 78e20b0e640e94fe781dc8d85a49d918, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -228,13 +228,19 @@ MonoBehaviour:
   sleepy_x_axis_knock_back: 5
   sleepy_y_axis_knock_back: 0.5
   is_angry: 1
-  angry_health_amount: 0
+  angry_health_amount: 3
   angry_move_speed: 3
-  angry_jump_force: 0
+  angry_jump_force: 400
   angry_x_axis_knock_back: 0
   angry_y_axis_knock_back: 0
+  angry_landing: 0
+  dash_attack_length: 1
+  dash_attack_count: 0
+  dash_right: 0
+  x_axis_dash_force: 500
   les_anim: {fileID: 4171108957438379181}
   sleepy_anim: {fileID: 0}
+  angry_anim: {fileID: 4171108957438379181}
   pm: {fileID: 4171108957438379177}
   ph: {fileID: 4171108957438379179}
   la: {fileID: 4171108957438379178}
@@ -266,7 +272,8 @@ MonoBehaviour:
   ground_object:
     serializedVersion: 2
     m_Bits: 64
-  check_radius: 0.02
+  check_radius: 0.07
+  rb: {fileID: 4171108957438379159}
 --- !u!114 &4171108957438379176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbd7979a5c6a4688bc013c5c7ce8e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ph: {fileID: 0}
+  ph: {fileID: 4171108957438379179}
 --- !u!114 &4171108957438379179
 MonoBehaviour:
   m_ObjectHideFlags: 0

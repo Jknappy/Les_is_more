@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6562065201425969328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.19199997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.157, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6562065201572110537}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6562065201572110536}
   m_Layer: 0
   m_Name: Collision_check
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_les: 1
-  les_health_amount: 3
-  les_move_speed: 1.5
+  les_health_amount: 5
+  les_move_speed: 1
   les_jump_force: 325
   les_x_axis_knock_back: 5
   les_y_axis_knock_back: 1
@@ -233,8 +233,14 @@ MonoBehaviour:
   angry_jump_force: 0
   angry_x_axis_knock_back: 0
   angry_y_axis_knock_back: 0
+  angry_landing: 0
+  dash_attack_length: 0.5
+  dash_attack_count: 0
+  dash_right: 0
+  x_axis_dash_force: 5
   les_anim: {fileID: 6562065201773077054}
   sleepy_anim: {fileID: 0}
+  angry_anim: {fileID: 0}
   pm: {fileID: 6562065201773077045}
   ph: {fileID: 6562065201773077055}
   la: {fileID: 6562065201773077053}
@@ -266,7 +272,8 @@ MonoBehaviour:
   ground_object:
     serializedVersion: 2
     m_Bits: 64
-  check_radius: 0.02
+  check_radius: 0.07
+  rb: {fileID: 0}
 --- !u!114 &6562065201773077040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6562065201812170574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.23000002, z: 0}
+  m_LocalPosition: {x: 0, y: -0.213, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6562065201572110537}
