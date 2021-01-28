@@ -1659,7 +1659,7 @@ MonoBehaviour:
   go_next_level: 0
   last_level: 0
   level_count: 1
-  x_axis_offset: 0
+  x_axis_offset: 5.55
 --- !u!61 &1677240070
 BoxCollider2D:
   m_ObjectHideFlags: 0
