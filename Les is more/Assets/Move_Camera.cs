@@ -13,7 +13,7 @@ public class Move_Camera : MonoBehaviour
         if (nl.go_next_level)
         {
             Camera.main.transform.position = new Vector3(x_axis_offset, 0, -10);
-            x_axis_offset += 3.7f;
+            x_axis_offset += 16f;
             nl.go_next_level = false;
         }
 
