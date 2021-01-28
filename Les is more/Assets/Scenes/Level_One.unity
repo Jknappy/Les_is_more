@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7627006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &7627007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -517,7 +520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &335670570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &335670571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1233,7 +1239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1137933253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,6 +1253,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &1137933254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1394,7 +1403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1273846448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,6 +1417,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &1273846449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1645,6 +1657,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 0
 --- !u!61 &1677240070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1896,7 +1911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1793363689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,6 +1925,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &1793363690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2019,7 +2037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1860038063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,6 +2051,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &1860038064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2142,7 +2163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1871409106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2156,6 +2177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_next_level: 0
+  last_level: 0
+  level_count: 1
+  x_axis_offset: 3.7
 --- !u!61 &1871409107
 BoxCollider2D:
   m_ObjectHideFlags: 0
