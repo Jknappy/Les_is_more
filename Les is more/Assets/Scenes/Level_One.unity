@@ -536,6 +536,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: angry_move_speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379159, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: m_GravityScale
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379179, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: spawn_point
       value: 
