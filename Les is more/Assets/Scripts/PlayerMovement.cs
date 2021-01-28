@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             if (is_jumping)
             {
                 rb.AddForce(new Vector2(0f, jump_force));
+                les_Animations.Les_Take_Off();
                 is_jumping = false;              
             }
         }
