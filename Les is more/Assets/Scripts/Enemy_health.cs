@@ -49,8 +49,7 @@ public class Enemy_health : MonoBehaviour
         if(health <= 0)
         {
             Purgatory();
-            //death animation
-            
+            //death animation            
         }
 
         if (ph.has_restarted)
