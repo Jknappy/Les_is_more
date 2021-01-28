@@ -22,6 +22,9 @@ public class GameMaster : MonoBehaviour
     public GameObject player;
     public GameObject player_child;
 
+    public GameObject enemies;
+    public GameObject enemies_child;
+
     public Next_Level nl;
     public GameObject next_level;
 
@@ -57,6 +60,7 @@ public class GameMaster : MonoBehaviour
         if (scene_name == "Level_One" && found_players == false)
         {
             FindLes();
+            FindEnemies();
             Find_Next_Level();
             Find_Main_Camera();
         }
@@ -119,7 +123,6 @@ public class GameMaster : MonoBehaviour
                 }
             }
         }
-
     }
 
     IEnumerator Load_Start_Menu()
@@ -174,6 +177,28 @@ public class GameMaster : MonoBehaviour
 
         //finds parent object, need to find child and then be able to grab child component 
         ph = player_child.GetComponent<Player_health>();                               
+    }
+
+    void FindEnemies()
+    {
+        enemies = GameObject.Find("Enemies");
+
+        if (picked_les)
+        {
+            enemies_child = enemies.transform.GetChild(0).gameObject;
+            enemies_child.SetActive(true);
+        }
+        else if (picked_sleepy)
+        {
+            enemies_child = enemies.transform.GetChild(1).gameObject;
+            enemies_child.SetActive(true);
+        }
+        else if (picked_angry)
+        {
+            enemies_child = enemies.transform.GetChild(2).gameObject;
+            enemies_child.SetActive(true);
+        }
+
     }
 
     void Find_Main_Camera()
