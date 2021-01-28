@@ -552,6 +552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Angry Les
       objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379180, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
 --- !u!1 &460111314
@@ -1623,7 +1627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138759, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138779, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: spawn_point
@@ -1672,6 +1676,10 @@ PrefabInstance:
     - target: {fileID: 4650797817342138780, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650797817342138781, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
+      propertyPath: sleepy_jump_force
+      value: 125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
