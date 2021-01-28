@@ -61,7 +61,8 @@ public class GameMaster : MonoBehaviour
         {
             FindLes();
             FindEnemies();
-
+            Find_Next_Level();
+            Find_Main_Camera();
         }
 
         if (scene_name == "StartMenu")
@@ -72,8 +73,6 @@ public class GameMaster : MonoBehaviour
 
         if (scene_name == "Level_One" && found_players == true)
         {
-            Find_Next_Level();
-            Find_Main_Camera();
             //if (ph.has_restarted)
             //{
             //    Debug.Log("game master sees you");
@@ -207,11 +206,6 @@ public class GameMaster : MonoBehaviour
         found_players = true;
         main_camera = GameObject.Find("Main Camera");
         mc = main_camera.GetComponent<Move_Camera>();
-        if (ph.has_restarted)
-        {
-            mc.x_axis_offset = 16f;
-            mc.transform.position = new Vector3(0, 0, -10);
-        }
     }
 
     void Find_Next_Level()
@@ -219,11 +213,6 @@ public class GameMaster : MonoBehaviour
         found_players = true;
         next_level = GameObject.Find("Goal");
         nl = next_level.GetComponent<Next_Level>();
-        if (ph.has_restarted)
-        {
-            nl.first_offset = 24f;
-            nl.transform.position = new Vector2(8, -.5f);
-        }
     }
 
     void Find_Start_Menu()
