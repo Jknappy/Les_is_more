@@ -7728,7 +7728,7 @@ PrefabInstance:
       objectReference: {fileID: 2143539401}
     - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: target_range
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_Name
@@ -7736,7 +7736,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452739, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815159560128452764, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2815159560128452766, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_RootOrder
@@ -7962,7 +7966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077046, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077055, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: spawn_point
@@ -7971,6 +7975,22 @@ PrefabInstance:
     - target: {fileID: 6562065201812170574, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065202265045812, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065202265045812, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065202265045812, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065202265045812, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6562065202265045814, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_Layer
