@@ -254,7 +254,7 @@ public class Les_animations : MonoBehaviour
         IEnumerator Les_Attack_Stall()
         {
             yield return new WaitForSeconds(.5f);
-            pm.move_speed = 1.5f;
+            pm.move_speed = les_move_speed;
         }
     }
 
@@ -274,7 +274,7 @@ public class Les_animations : MonoBehaviour
         IEnumerator Sleepy_Attack_Stall()
         {
             yield return new WaitForSeconds(2f);
-            pm.move_speed = .75f;
+            pm.move_speed = sleepy_move_speed;
         }
     }
 
