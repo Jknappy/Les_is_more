@@ -16,5 +16,6 @@ public class Move_Camera : MonoBehaviour
             x_axis_offset += 16f;
             nl.go_next_level = false;
         }
+
     }
 }
