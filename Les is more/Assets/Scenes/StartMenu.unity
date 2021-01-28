@@ -620,7 +620,7 @@ RectTransform:
   m_Children:
   - {fileID: 312483180}
   m_Father: {fileID: 1388609682}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -721,8 +721,9 @@ GameObject:
   - component: {fileID: 942255283}
   - component: {fileID: 942255282}
   - component: {fileID: 942255281}
+  - component: {fileID: 942255284}
   m_Layer: 5
-  m_Name: Normal
+  m_Name: Or_Less_les
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,11 +742,11 @@ RectTransform:
   m_Children:
   - {fileID: 355314347}
   m_Father: {fileID: 1388609682}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310.2, y: -62.999985}
+  m_AnchoredPosition: {x: -240, y: -62.999985}
   m_SizeDelta: {x: 195.3412, y: 50.6157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942255281
@@ -791,7 +792,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 942255282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1388609683}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: Selected_Les
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &942255282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,6 +843,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942255279}
   m_CullTransparentMesh: 1
+--- !u!114 &942255284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942255279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9b3a4f7a4f54831980845a5ab0016b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level_One: Level_One
+  game_master: {fileID: 0}
+  gm: {fileID: 0}
 --- !u!1 &1388609678
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +870,7 @@ GameObject:
   - component: {fileID: 1388609681}
   - component: {fileID: 1388609680}
   - component: {fileID: 1388609679}
+  - component: {fileID: 1388609683}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -922,10 +951,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 256717290}
-  - {fileID: 1439265622}
-  - {fileID: 737712787}
-  - {fileID: 1847590722}
   - {fileID: 942255280}
+  - {fileID: 1439265622}
+  - {fileID: 1847590722}
+  - {fileID: 737712787}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -934,6 +963,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1388609683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388609678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9b3a4f7a4f54831980845a5ab0016b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level_One: Level_One
+  game_master: {fileID: 0}
+  gm: {fileID: 0}
 --- !u!1 &1439265621
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,8 +990,9 @@ GameObject:
   - component: {fileID: 1439265625}
   - component: {fileID: 1439265624}
   - component: {fileID: 1439265623}
+  - component: {fileID: 1439265626}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Sleepy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,7 +1011,7 @@ RectTransform:
   m_Children:
   - {fileID: 1680051915}
   m_Father: {fileID: 1388609682}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1017,9 +1062,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 631931414, guid: 6c1fad3680b4d44278b6feb01dfaa55a, type: 3}
-        m_TargetAssemblyTypeName: GameMaster, Assembly-CSharp
-        m_MethodName: StartLes
+      - m_Target: {fileID: 1388609683}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: Selected_Sleepy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1067,6 +1112,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439265621}
   m_CullTransparentMesh: 1
+--- !u!114 &1439265626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439265621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9b3a4f7a4f54831980845a5ab0016b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level_One: Level_One
+  game_master: {fileID: 0}
+  gm: {fileID: 0}
 --- !u!1 &1680051914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,8 +1218,9 @@ GameObject:
   - component: {fileID: 1847590725}
   - component: {fileID: 1847590724}
   - component: {fileID: 1847590723}
+  - component: {fileID: 1847590726}
   m_Layer: 5
-  m_Name: Start (2)
+  m_Name: Angry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,7 +1243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.2, y: -62.999985}
+  m_AnchoredPosition: {x: 240, y: -62.999985}
   m_SizeDelta: {x: 195.3412, y: 50.6157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1847590723
@@ -1228,7 +1289,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847590724}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1388609683}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: Selected_Angry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1847590724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,3 +1340,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847590721}
   m_CullTransparentMesh: 1
+--- !u!114 &1847590726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847590721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9b3a4f7a4f54831980845a5ab0016b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level_One: Level_One
+  game_master: {fileID: 0}
+  gm: {fileID: 0}
