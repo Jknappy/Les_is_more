@@ -14,8 +14,19 @@ public class GameMaster : MonoBehaviour
 
     public bool found_players = false;
 
+    public bool chose_les;
+    public bool chose_sleepy;
+    public bool chose_angry;
+
     public Player_health ph;
-    public GameObject go;
+    public GameObject player;
+    public GameObject player_child;
+
+    public Next_Level nl;
+    public GameObject next_level;
+
+    public Move_Camera mc;
+    public GameObject main_camera;
 
     void Awake()
     {
@@ -43,6 +54,8 @@ public class GameMaster : MonoBehaviour
         if (scene_name == "Level_One" && found_players == false)
         {
             FindLes();
+            Find_Next_Level();
+            Find_Main_Camera();
         }
 
         if (scene_name == "StartMenu")
@@ -50,7 +63,7 @@ public class GameMaster : MonoBehaviour
             found_players = false;
         }
 
-        if (found_players)
+        if (scene_name == "Level_One" && found_players == true)
         {
             //if (ph.has_restarted)
             //{
@@ -58,10 +71,10 @@ public class GameMaster : MonoBehaviour
             //    TotalRestart();
             //}
 
-            if (ph.reached_goal)
-            {
-                SceneManager.LoadScene(start_menu);
-            }
+            //if (ph.reached_goal)
+            //{
+            //    SceneManager.LoadScene(start_menu);
+            //}
         }      
     }
 
@@ -97,9 +110,22 @@ public class GameMaster : MonoBehaviour
     void FindLes()
     {
         found_players = true;    
-        go = GameObject.Find("Players");
-        ph = go.GetComponent<Player_health>();
-                               
+        player = GameObject.Find("Players");
+        player_child = player.transform.GetChild(0).gameObject;
+        //finds parent object, need to find child and then be able to grab child component 
+        ph = player_child.GetComponent<Player_health>();                               
+    }
+    void Find_Main_Camera()
+    {
+        found_players = true;
+        main_camera = GameObject.Find("Main Camera");
+        mc = main_camera.GetComponent<Move_Camera>();
+    }
+    void Find_Next_Level()
+    {
+        found_players = true;
+        next_level = GameObject.Find("Goal");
+        nl = next_level.GetComponent<Next_Level>();
     }
 }
 

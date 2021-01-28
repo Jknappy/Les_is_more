@@ -1638,7 +1638,7 @@ GameObject:
   - component: {fileID: 1677240070}
   - component: {fileID: 1677240069}
   m_Layer: 0
-  m_Name: Goal (1)
+  m_Name: Goal
   m_TagString: goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
