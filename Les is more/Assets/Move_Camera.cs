@@ -5,13 +5,7 @@ using UnityEngine;
 public class Move_Camera : MonoBehaviour
 {
     public Next_Level nl;
-    public float x_axis_offset = 4;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public float x_axis_offset;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +13,7 @@ public class Move_Camera : MonoBehaviour
         if (nl.go_next_level)
         {
             Camera.main.transform.position = new Vector3(x_axis_offset, 0, -10);
-            x_axis_offset += 4;
+            x_axis_offset += 3.7f;
             nl.go_next_level = false;
         }
 
