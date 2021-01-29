@@ -77,6 +77,7 @@ public class GameMaster : MonoBehaviour
             if (ph.has_restarted)
             {
                 nl.level_count = 1;
+                nl.coin_count = 0;
 
                 //TotalRestart();
             }
@@ -222,6 +223,10 @@ public class GameMaster : MonoBehaviour
         found_players = true;
         next_level = GameObject.Find("Goal");
         nl = next_level.GetComponent<Next_Level>();
+
+        nl.level_count = 1;
+        nl.coin_count = 0;
+
         if (ph.has_restarted)
         {
             nl.first_offset = 24f;

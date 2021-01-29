@@ -18,6 +18,7 @@ public class Player_health : MonoBehaviour
     [Header("Display Text")]
     public Text player_health_amount;
     public Text restart_count_text;
+    public Text coin_count_text;
 
     [Header("Spawn Location")]
     public GameObject spawn_point;
@@ -27,6 +28,7 @@ public class Player_health : MonoBehaviour
     public bool invincible = false;
     public bool has_restarted;
     public bool reached_goal = false;
+    public bool player_collected_coin;
 
     public float invincibilty;
     public float invincibility_countdown;
@@ -35,9 +37,15 @@ public class Player_health : MonoBehaviour
     private PlayerMovement pm;
     public bool respawn_enemies = false;
 
+    public Next_Level nl;
+    public GameObject next_level;
+
     // Start is called before the first frame update
     void Start()
     {
+        next_level = GameObject.Find("Goal");
+        nl = next_level.GetComponent<Next_Level>();
+
         les_anim = GetComponent<Les_animations>();
         pm = GetComponent<PlayerMovement>();
         player_health = starting_health;
@@ -49,18 +57,11 @@ public class Player_health : MonoBehaviour
     {
         number_of_hearts = player_health;
 
-        //this was not working AT ALL lol
-        //invincibilty = invincibility_countdown;
+        restart_count_text.text = restart_count.ToString();
 
-        //if(invincibilty > 0)
-        //{
-        //    can_be_damaged = false;
-        //    invincibility_countdown -= Time.deltaTime;
-        //}
-        //else
-        //{
-        //    can_be_damaged = true;
-        //}
+        coin_count_text.text = nl.current_coin_count.ToString();
+
+        nl.collected_coin = player_collected_coin;
 
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -149,6 +150,7 @@ public class Player_health : MonoBehaviour
         // a timer to get all the enemies respawning, without it the true false check was too quick 
         StartCoroutine(Wait_For_Enemy_Respawn());
     }
+
 
     IEnumerator Wait_For_Enemy_Respawn()
     {
