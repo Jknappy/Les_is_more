@@ -9,7 +9,6 @@ TagManager:
   - goal
   - attack
   - Coin
-  - Health
   layers:
   - Default
   - TransparentFX

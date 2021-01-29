@@ -11,13 +11,13 @@ public class Collect_Health : MonoBehaviour
 
     private void Start()
     {
-        //player = GameObject.FindWithTag("Player");
-        //ph = player.GetComponent<Player_health>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        ph = player.GetComponent<Player_health>();
     }
 
     private void Update()
     {
-        if (ph != null && ph.has_restarted)
+        if (ph.has_restarted)
         {
             sp.enabled = true;
             heart_collider.enabled = true; 
