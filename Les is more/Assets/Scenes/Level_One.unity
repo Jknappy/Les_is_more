@@ -402,11 +402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: angry_x_axis_knock_back
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: angry_y_axis_knock_back
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: dash_attack_cooldown_time
@@ -12139,6 +12139,10 @@ PrefabInstance:
       propertyPath: target_range
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 477674529516188128, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
+      propertyPath: attack_stall_time
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2815159558880092145, guid: de9961d356def4aac8ce9518a50b9c21, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -12235,6 +12239,10 @@ PrefabInstance:
     - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: move_speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
+      propertyPath: attack_stall
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1147382546, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: target_range
@@ -12477,6 +12485,14 @@ PrefabInstance:
     - target: {fileID: 9086203727416864972, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
       propertyPath: target_range
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086203727416864972, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
+      propertyPath: enemy_move_speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086203727416864972, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
+      propertyPath: attack_stall_time
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9086203727416864972, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
       propertyPath: knock_back_length

@@ -7,7 +7,8 @@ public class Enemy_health : MonoBehaviour
     [Header("Enemy Stats")]
     public float starting_health;
     public float health;
-    public float move_speed;
+    public float enemy_move_speed;
+    private float move_speed;
     public float target_range;
     public bool is_in_purgatory = false;
     public float attack_stall_time = 1.5f;
@@ -27,6 +28,7 @@ public class Enemy_health : MonoBehaviour
     [Header("Player Components")]
     public Transform target;
     public Player_health ph;
+    public bool hit_player;
 
     [Header("Enemy Components")]
     public Rigidbody2D rb;
@@ -38,6 +40,8 @@ public class Enemy_health : MonoBehaviour
     void Start()
     {
         health = starting_health;
+
+        move_speed = enemy_move_speed;
 
         //sp = GetComponent<SpriteRenderer>();
 
@@ -89,6 +93,18 @@ public class Enemy_health : MonoBehaviour
                 knock_back_count -= Time.deltaTime;               
             }
         }
+
+        if (hit_player)
+        {
+            attack_stall -= Time.deltaTime;
+        }
+
+        if (attack_stall <= 0)
+        {
+            move_speed = enemy_move_speed;
+            hit_player = false;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -115,14 +131,17 @@ public class Enemy_health : MonoBehaviour
             //move_speed = 0 
         }
 
-        if(collision.tag == "Player" && attack_stall <= 0)
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player" && attack_stall <= 0)
         {
-            Debug.Log("attackstall");
             attack_stall = attack_stall_time;
             move_speed = 0;
+            hit_player = true;
         }
-        attack_stall -= Time.deltaTime;
-
 
     }
 
