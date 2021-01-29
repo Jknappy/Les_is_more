@@ -12,14 +12,14 @@ public class Collect_Coin : MonoBehaviour
     public bool collected_coin;
 
     private void Start()
-    {       
-        //player = GameObject.FindWithTag("Player");
-        //ph = player.GetComponent<Player_health>();
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        ph = player.GetComponent<Player_health>();
     }
 
     private void Update()
     {
-        if (ph != null && ph.has_restarted)
+        if (ph.has_restarted)
         {
             sp.enabled = true;
             coin_collider.enabled = true;
