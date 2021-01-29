@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379177, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: check_radius
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379179, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: spawn_point
       value: 
@@ -406,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379180, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4171108957872284041, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: m_Layer
@@ -11937,7 +11941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138759, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138777, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: jump_force
@@ -12507,6 +12511,10 @@ PrefabInstance:
     - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: les_move_speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077045, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: check_radius
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077046, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_Name

@@ -30,6 +30,7 @@ public class Les_animations : MonoBehaviour
     public float angry_x_axis_knock_back;
     public float angry_y_axis_knock_back;
     public bool angry_landing;
+    public bool angry_attacking = false;
 
     public float dash_attack_length;
     public float dash_attack_count;
@@ -130,6 +131,11 @@ public class Les_animations : MonoBehaviour
             {
                 angry_landing = true;
                 pm.move_speed = 0;
+            }
+            else if(angry_attacking)
+            {
+                //angry_landing = false;
+                pm.move_speed = x_axis_dash_force;
             }
             else
             {
@@ -330,9 +336,24 @@ public class Les_animations : MonoBehaviour
     {
         angry_anim.SetTrigger("Attack");
         Debug.Log("attacking");
+        angry_attacking = true;
 
-        //not sure why i cant get him to move yet 
-        pm.rb.velocity = new Vector2(pm.move_direction * x_axis_dash_force, 0);
+        StartCoroutine(Angry_Attacking());
+        IEnumerator Angry_Attacking()
+        {
+
+            yield return new WaitForSeconds(2f);
+        }
+        angry_attacking = false;
+
+        //TO DO
+        //Dash attack
+        // dash in the direction hes facing
+        // if (!pm.is_grounded){pm.rb.gravity = 0;}
+        // 
+        //not sure why i cant get him to move yet
+
+        //pm.move_speed *= x_axis_dash_force;
     }
 
     public void Angry_Running()
