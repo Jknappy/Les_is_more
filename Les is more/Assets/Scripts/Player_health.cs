@@ -8,7 +8,12 @@ public class Player_health : MonoBehaviour
     [Header("Player Health")]
     public float starting_health;
     public float player_health;
+    public float number_of_hearts;
     public float restart_count = 0f;
+
+    public Image[] hearts;
+    public Sprite full_heart;
+    //public Sprite empty_heart;
 
     [Header("Display Text")]
     public Text player_health_amount;
@@ -31,12 +36,27 @@ public class Player_health : MonoBehaviour
     {
         les_anim = GetComponent<Les_animations>();
         pm = GetComponent<PlayerMovement>();
-        player_health = starting_health;        
+        player_health = starting_health;
+        number_of_hearts = player_health;
     }
 
     // Update is called once per frame
     void Update()
     {
+        number_of_hearts = player_health;
+
+        for(int i = 0; i < hearts.Length; i++)
+        {
+            if(i < number_of_hearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+
         if(can_be_damaged)
         {
             player_health -= 1f;

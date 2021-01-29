@@ -61,8 +61,6 @@ public class GameMaster : MonoBehaviour
         {
             FindLes();
             FindEnemies();
-            Find_Next_Level();
-            Find_Main_Camera();
         }
 
         if (scene_name == "StartMenu")
@@ -73,17 +71,22 @@ public class GameMaster : MonoBehaviour
 
         if (scene_name == "Level_One" && found_players == true)
         {
+            Find_Next_Level();
+            Find_Main_Camera();
+
             if (ph.has_restarted)
             {
                 nl.level_count = 1;
-                //Debug.Log("game master sees you");
+
                 //TotalRestart();
             }
 
-            //if (ph.reached_goal)
-            //{
-            //    SceneManager.LoadScene(start_menu);
-            //}
+            if (nl.beat_game)
+            {
+                //win screen?
+                nl.beat_game = false;
+                SceneManager.LoadScene(start);
+            }
         }
 
         if (scene_name == "StartMenu")
@@ -150,7 +153,7 @@ public class GameMaster : MonoBehaviour
     void TotalRestart()
     {
         //this was an experiment to see if i could get data to persist between scenes 
-        total_restart_count++;
+        //total_restart_count++;
         //ph.respawn_enemies = true;
         //ph.has_restarted = false;
     }
@@ -207,6 +210,11 @@ public class GameMaster : MonoBehaviour
         found_players = true;
         main_camera = GameObject.Find("Main Camera");
         mc = main_camera.GetComponent<Move_Camera>();
+        if (ph.has_restarted)
+        {
+            mc.x_axis_offset = 16f;
+            mc.transform.position = new Vector3(0, 0, -10);
+        }
     }
 
     void Find_Next_Level()
@@ -214,6 +222,11 @@ public class GameMaster : MonoBehaviour
         found_players = true;
         next_level = GameObject.Find("Goal");
         nl = next_level.GetComponent<Next_Level>();
+        if (ph.has_restarted)
+        {
+            nl.first_offset = 24f;
+            nl.transform.position = new Vector2(8, -.5f);
+        }
     }
 
     void Find_Start_Menu()
@@ -224,12 +237,4 @@ public class GameMaster : MonoBehaviour
 
 }
 
-//find all enemies in purgatory and call their respawn function 
-
-// TO DO
-// game manager does not get destroyed in between scenes 
-// keep track of how many tries
-// how many enemies defeated? 
-// Did player reach goal, if so  
-// Unlock next character
-// Link button press with different character   
+  
