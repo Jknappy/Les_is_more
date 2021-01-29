@@ -148,21 +148,21 @@ public class Les_animations : MonoBehaviour
                 dash_right = true;
                 //the number at the end is the y value for knock back amount
                 pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
-                angry_jump_force = 0f;
+                pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 dash_attack_count -= Time.deltaTime;
             }
             if (!facing_right && angry_attacking)
             {
                 dash_right = false;
                 pm.rb.AddForce(new Vector2(-x_axis_dash_force, 0));
-                angry_jump_force = 0f;
+                pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 dash_attack_count -= Time.deltaTime;
             }
         }
         else
         {
+            pm.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             angry_attacking = false;
-            angry_jump_force = 900f;
         }
     }
 
