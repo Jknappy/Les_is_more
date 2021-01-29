@@ -30,7 +30,8 @@ public class Les_animations : MonoBehaviour
     public float angry_x_axis_knock_back;
     public float angry_y_axis_knock_back;
     public bool angry_landing;
-    public bool angry_attacking = false;
+
+    public bool angry_attacking;
 
     public float dash_attack_length;
     public float dash_attack_count;
@@ -132,16 +133,36 @@ public class Les_animations : MonoBehaviour
                 angry_landing = true;
                 pm.move_speed = 0;
             }
-            else if(angry_attacking)
-            {
-                //angry_landing = false;
-                pm.move_speed = x_axis_dash_force;
-            }
             else
             {
                 angry_landing = false;
                 pm.move_speed = angry_move_speed;
             }
+        }
+
+        //angry attack
+        if (dash_attack_count >= 0)
+        {
+            if (facing_right && angry_attacking)
+            {
+                dash_right = true;
+                //the number at the end is the y value for knock back amount
+                pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
+                angry_jump_force = 0f;
+                dash_attack_count -= Time.deltaTime;
+            }
+            if (!facing_right && angry_attacking)
+            {
+                dash_right = false;
+                pm.rb.AddForce(new Vector2(-x_axis_dash_force, 0));
+                angry_jump_force = 0f;
+                dash_attack_count -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            angry_attacking = false;
+            angry_jump_force = 900f;
         }
     }
 
@@ -157,6 +178,7 @@ public class Les_animations : MonoBehaviour
         }
         else if (is_angry)
         {
+
             Angry_Attack();
         }
     }
@@ -334,26 +356,10 @@ public class Les_animations : MonoBehaviour
     //Angry
     public void Angry_Attack()
     {
-        angry_anim.SetTrigger("Attack");
-        Debug.Log("attacking");
         angry_attacking = true;
+        dash_attack_count = dash_attack_length;
 
-        StartCoroutine(Angry_Attacking());
-        IEnumerator Angry_Attacking()
-        {
-
-            yield return new WaitForSeconds(2f);
-        }
-        angry_attacking = false;
-
-        //TO DO
-        //Dash attack
-        // dash in the direction hes facing
-        // if (!pm.is_grounded){pm.rb.gravity = 0;}
-        // 
-        //not sure why i cant get him to move yet
-
-        //pm.move_speed *= x_axis_dash_force;
+        angry_anim.SetTrigger("Attack");
     }
 
     public void Angry_Running()
