@@ -22,8 +22,8 @@ public class GameMaster : MonoBehaviour
     public GameObject player;
     public GameObject player_child;
 
-    public GameObject enemies;
-    public GameObject enemies_child;
+    public GameObject[] enemies;
+    public Transform[] enemies_child;
 
     public Next_Level nl;
     public GameObject next_level;
@@ -196,22 +196,30 @@ public class GameMaster : MonoBehaviour
 
     void FindEnemies()
     {
-        enemies = GameObject.Find("Enemies");
+        
+        enemies = GameObject.FindGameObjectsWithTag("enemy");
 
         if (picked_les)
-        {
-            enemies_child = enemies.transform.GetChild(0).gameObject;
-            enemies_child.SetActive(true);
+        {          
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].transform.GetChild(0).gameObject.SetActive(true);
+            }
+
         }
         else if (picked_sleepy)
         {
-            enemies_child = enemies.transform.GetChild(1).gameObject;
-            enemies_child.SetActive(true);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].transform.GetChild(1).gameObject.SetActive(true);
+            }
         }
         else if (picked_angry)
         {
-            enemies_child = enemies.transform.GetChild(2).gameObject;
-            enemies_child.SetActive(true);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
         }
 
     }

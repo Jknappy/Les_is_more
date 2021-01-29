@@ -13,8 +13,8 @@ public class Collect_Coin : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        ph = player.GetComponent<Player_health>();
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //ph = player.GetComponent<Player_health>();
     }
 
     private void Update()
