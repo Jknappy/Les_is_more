@@ -23,7 +23,8 @@ public class Player_health : MonoBehaviour
     public GameObject spawn_point;
 
     [Header("Conditions")]
-    public bool can_be_damaged = true;
+    public bool damaged = true;
+    public bool invincible = false;
     public bool has_restarted;
     public bool reached_goal = false;
 
@@ -73,11 +74,21 @@ public class Player_health : MonoBehaviour
             }
         }
 
-        if (can_be_damaged)
+        if (damaged == true)
         {
             player_health -= 1f;
-            can_be_damaged = false;
-            //set coroutine for invincibility 
+            invincibilty = invincibility_countdown;
+            damaged = false;            
+        }
+
+        if(invincibilty >= 0)
+        {
+            invincibilty -= Time.deltaTime;
+            invincible = true;
+        }
+        else
+        {
+            invincible = false;
         }
 
         if (player_health <= 0 || Input.GetKeyDown(KeyCode.R))
@@ -90,21 +101,27 @@ public class Player_health : MonoBehaviour
     {
         if (collision.transform.tag == "enemy")
         {
-
-            if (transform.position.x < collision.transform.position.x)
+            if (!invincible)
             {
-                pm.knock_right = true;
+                damaged = true;
+
+                if (transform.position.x < collision.transform.position.x)
+                {
+                    pm.knock_right = true;
+                }
+                else
+                {
+                    pm.knock_right = false;
+                }
+
+                les_anim.Recoil();
+
+                pm.knock_back_count = pm.knock_back_length;
             }
             else
             {
-                pm.knock_right = false;                    
-            }
-            
-            les_anim.Recoil();
-
-            pm.knock_back_count = pm.knock_back_length;
-
-            invincibilty = invincibility_countdown;
+                damaged = false;
+            }            
         }
     }
 

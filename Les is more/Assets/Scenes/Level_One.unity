@@ -511,6 +511,10 @@ PrefabInstance:
       propertyPath: spawn_point
       value: 
       objectReference: {fileID: 316138468}
+    - target: {fileID: 4171108957438379179, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: invincibilty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379180, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: m_Name
       value: Angry Les
@@ -12596,6 +12600,10 @@ PrefabInstance:
       propertyPath: spawn_point
       value: 
       objectReference: {fileID: 316138468}
+    - target: {fileID: 4650797817342138779, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
+      propertyPath: invincibility_countdown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138780, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13176,6 +13184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3694194505110099556, guid: a8f33b3c97d5a48d28a29bf3be1a523c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3694194505110099562, guid: a8f33b3c97d5a48d28a29bf3be1a523c, type: 3}
       propertyPath: m_Name
       value: Health
@@ -13224,7 +13236,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3694194505110099556, guid: a8f33b3c97d5a48d28a29bf3be1a523c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8f33b3c97d5a48d28a29bf3be1a523c, type: 3}
 --- !u!1001 &6562065202757954727
 PrefabInstance:
@@ -13317,9 +13330,17 @@ PrefabInstance:
       propertyPath: les_move_speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: les_x_axis_knock_back
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077045, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: check_radius
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077045, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: knock_back_length
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077046, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_Name
