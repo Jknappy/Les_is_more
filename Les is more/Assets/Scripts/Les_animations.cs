@@ -141,13 +141,15 @@ public class Les_animations : MonoBehaviour
                 pm.move_speed = angry_move_speed;
             }
         }
+    }
 
-        //angry attack
+    void FixedUpdate()
+    {
         if (dash_attack_count >= 0)
         {
             if (facing_right && angry_attacking)
             {
-                dash_right = true;              
+                dash_right = true;
                 pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
                 pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 dash_attack_count -= Time.deltaTime;
@@ -388,16 +390,17 @@ public class Les_animations : MonoBehaviour
 
     public void Flip_Angry()
     {
-
-        if (pm.move_direction > 0 && !facing_right)
+        if (!angry_attacking)
         {
-            Angry_Flip_Sprite();
-        }
-        else if (pm.move_direction < 0 && facing_right)
-        {
-            Angry_Flip_Sprite();
-        }
-        
+            if (pm.move_direction > 0 && !facing_right)
+            {
+                Angry_Flip_Sprite();
+            }
+            else if (pm.move_direction < 0 && facing_right)
+            {
+                Angry_Flip_Sprite();
+            }
+        }       
     }
 
     public void Angry_Flip_Sprite()
