@@ -77,7 +77,9 @@ public class GameMaster : MonoBehaviour
             if (ph.has_restarted)
             {
                 nl.level_count = 1;
-                nl.coin_count = 0;
+                ph.player_coin_count = 0;
+                nl.current_coin_count = 0;
+                nl.coin_count = 1;
 
                 //TotalRestart();
             }
@@ -225,7 +227,7 @@ public class GameMaster : MonoBehaviour
         nl = next_level.GetComponent<Next_Level>();
 
         nl.level_count = 1;
-        nl.coin_count = 0;
+        //nl.current_coin_count = 0;
 
         if (ph.has_restarted)
         {
