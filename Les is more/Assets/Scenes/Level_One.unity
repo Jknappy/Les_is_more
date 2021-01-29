@@ -12296,13 +12296,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3034117805328522572, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
+      propertyPath: m_Radius
+      value: 0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 3034117805328522575, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: m_Name
       value: Enemy_Mug
       objectReference: {fileID: 0}
     - target: {fileID: 3034117805328522575, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bf6bdffe719648119574857c660a5f8, type: 3}
@@ -12497,6 +12501,14 @@ PrefabInstance:
     - target: {fileID: 9086203727416864972, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
       propertyPath: knock_back_length
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086203727416864975, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
+      propertyPath: m_Radius
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086203727416864975, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 9086203727416864977, guid: ea650b20cf51d4eedb6a9fb81f8c312b, type: 3}
       propertyPath: m_RootOrder
