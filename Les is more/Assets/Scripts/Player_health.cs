@@ -23,9 +23,12 @@ public class Player_health : MonoBehaviour
     public GameObject spawn_point;
 
     [Header("Conditions")]
-    public bool can_be_damaged = false;
+    public bool can_be_damaged = true;
     public bool has_restarted;
     public bool reached_goal = false;
+
+    public float invincibilty;
+    public float invincibility_countdown;
 
     private Les_animations les_anim;
     private PlayerMovement pm;
@@ -45,9 +48,22 @@ public class Player_health : MonoBehaviour
     {
         number_of_hearts = player_health;
 
-        for(int i = 0; i < hearts.Length; i++)
+        //this was not working AT ALL lol
+        //invincibilty = invincibility_countdown;
+
+        //if(invincibilty > 0)
+        //{
+        //    can_be_damaged = false;
+        //    invincibility_countdown -= Time.deltaTime;
+        //}
+        //else
+        //{
+        //    can_be_damaged = true;
+        //}
+
+        for (int i = 0; i < hearts.Length; i++)
         {
-            if(i < number_of_hearts)
+            if (i < number_of_hearts)
             {
                 hearts[i].enabled = true;
             }
@@ -57,16 +73,16 @@ public class Player_health : MonoBehaviour
             }
         }
 
-        if(can_be_damaged)
+        if (can_be_damaged)
         {
             player_health -= 1f;
             can_be_damaged = false;
             //set coroutine for invincibility 
         }
 
-        if(player_health <= 0|| Input.GetKeyDown(KeyCode.R))
+        if (player_health <= 0 || Input.GetKeyDown(KeyCode.R))
         {
-            Restart();            
+            Restart();
         }
     }
 
@@ -74,30 +90,33 @@ public class Player_health : MonoBehaviour
     {
         if (collision.transform.tag == "enemy")
         {
+
             if (transform.position.x < collision.transform.position.x)
             {
                 pm.knock_right = true;
             }
             else
             {
-                pm.knock_right = false;
+                pm.knock_right = false;                    
             }
+            
             les_anim.Recoil();
 
             pm.knock_back_count = pm.knock_back_length;
-            can_be_damaged = true;
+
+            invincibilty = invincibility_countdown;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "goal")
+        if (collision.transform.tag == "goal")
         {
             reached_goal = true;
             //move to next level 
         }
 
-        if(collision.transform.tag == "death")
+        if (collision.transform.tag == "death")
         {
             player_health = 0f;
         }
@@ -111,7 +130,7 @@ public class Player_health : MonoBehaviour
         player_health = starting_health;
 
         // a timer to get all the enemies respawning, without it the true false check was too quick 
-        StartCoroutine(Wait_For_Enemy_Respawn());    
+        StartCoroutine(Wait_For_Enemy_Respawn());
     }
 
     IEnumerator Wait_For_Enemy_Respawn()

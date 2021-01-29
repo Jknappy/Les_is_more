@@ -13381,6 +13381,10 @@ PrefabInstance:
       propertyPath: hearts.Array.data[7]
       value: 
       objectReference: {fileID: 1894526934}
+    - target: {fileID: 6562065201773077055, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: invincibility_countdown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6562065201812170574, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_Layer
       value: 0
