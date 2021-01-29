@@ -34,6 +34,12 @@ public class GameMaster : MonoBehaviour
     public StartMenu sm;
     public GameObject start_menu;
 
+    public Collect_Coin[] cc;
+    public GameObject[] collect_coin;
+
+    public Collect_Health[] ch;
+    public GameObject[] collect_health;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -71,6 +77,8 @@ public class GameMaster : MonoBehaviour
 
         if (scene_name == "Level_One" && found_players == true)
         {
+            Find_Collect_Coin();
+            Find_Collect_Health();
             Find_Next_Level();
             Find_Main_Camera();
 
@@ -233,6 +241,33 @@ public class GameMaster : MonoBehaviour
         {
             nl.first_offset = 24f;
             nl.transform.position = new Vector2(8, -.5f);
+        }
+    }
+
+    void Find_Collect_Coin()
+    {
+        collect_coin = GameObject.FindGameObjectsWithTag("Coin");
+        cc = new Collect_Coin[collect_coin.Length];
+        for (int i = 0; i < collect_coin.Length; i++)
+        {
+
+            cc[i] = collect_coin[i].GetComponent<Collect_Coin>();
+            cc[i].player = player_child;
+            cc[i].ph = player_child.GetComponent<Player_health>();
+
+        }
+    }
+
+    void Find_Collect_Health()
+    {
+        collect_health = GameObject.FindGameObjectsWithTag("Health");
+        ch = new Collect_Health[collect_health.Length];
+        for (int i = 0; i < collect_health.Length; i++)
+        {
+
+            ch[i] = collect_health[i].GetComponent<Collect_Health>();
+            ch[i].player = player_child;
+            ch[i].ph = player_child.GetComponent<Player_health>();
         }
     }
 
