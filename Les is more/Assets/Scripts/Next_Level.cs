@@ -20,7 +20,7 @@ public class Next_Level : MonoBehaviour
     public Collect_Coin cc;
     public GameObject coin;
 
-    public Collider2D coin_block;
+    public BoxCollider2D coin_block;
 
     // Start is called before the first frame update
     void Start()
@@ -31,18 +31,14 @@ public class Next_Level : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (collected_coin)
+    {        
+        if(current_coin_count == coin_count)
         {
-            current_coin_count++;
-            if(current_coin_count == coin_count)
-            {
-                coin_block.enabled = false;
-            }
-            else
-            {
-                coin_block.enabled = true;
-            }
+            coin_block.enabled = false;
+        }
+        else
+        {
+            coin_block.enabled = true;
         }
     }
 

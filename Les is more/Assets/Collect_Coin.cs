@@ -35,10 +35,9 @@ public class Collect_Coin : MonoBehaviour
             coin_collider.enabled = false;
 
             ph.player_collected_coin = true;
+            ph.player_coin_count++;
         }
-        else
-        {
             ph.player_collected_coin = false;
-        }
+        
     }
 }

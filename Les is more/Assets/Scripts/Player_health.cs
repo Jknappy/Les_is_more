@@ -30,6 +30,8 @@ public class Player_health : MonoBehaviour
     public bool reached_goal = false;
     public bool player_collected_coin;
 
+    public float player_coin_count;
+
     public float invincibilty;
     public float invincibility_countdown;
 
@@ -62,6 +64,7 @@ public class Player_health : MonoBehaviour
         coin_count_text.text = nl.current_coin_count.ToString();
 
         nl.collected_coin = player_collected_coin;
+        nl.current_coin_count = player_coin_count;
 
         for (int i = 0; i < hearts.Length; i++)
         {
