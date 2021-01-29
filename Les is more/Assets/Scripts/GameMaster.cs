@@ -73,11 +73,12 @@ public class GameMaster : MonoBehaviour
 
         if (scene_name == "Level_One" && found_players == true)
         {
-            //if (ph.has_restarted)
-            //{
-            //    Debug.Log("game master sees you");
-            //    TotalRestart();
-            //}
+            if (ph.has_restarted)
+            {
+                nl.level_count = 1;
+                //Debug.Log("game master sees you");
+                //TotalRestart();
+            }
 
             //if (ph.reached_goal)
             //{
