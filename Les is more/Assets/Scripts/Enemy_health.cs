@@ -9,9 +9,7 @@ public class Enemy_health : MonoBehaviour
     public float health;
     public float move_speed;
     public float target_range;
-    public bool is_in_purgatory = false;
-    public float attack_stall_time = 1.5f;
-    public float attack_stall;
+    public bool is_in_purgatory = false;   
 
     [Header("Locations")]
     public GameObject purgatory;   
@@ -114,16 +112,6 @@ public class Enemy_health : MonoBehaviour
             knock_back_count = knock_back_length;
             //move_speed = 0 
         }
-
-        if(collision.tag == "Player" && attack_stall <= 0)
-        {
-            Debug.Log("attackstall");
-            attack_stall = attack_stall_time;
-            move_speed = 0;
-        }
-        attack_stall -= Time.deltaTime;
-
-
     }
 
     void Generate_Spawn_point()
