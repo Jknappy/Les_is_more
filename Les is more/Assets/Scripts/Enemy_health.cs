@@ -14,6 +14,7 @@ public class Enemy_health : MonoBehaviour
     [Header("Locations")]
     public GameObject purgatory;   
     public GameObject spawn_point;
+    public GameObject death_anim;
 
     [Header("KnockBack")]
     public float knock_back;
@@ -36,6 +37,8 @@ public class Enemy_health : MonoBehaviour
     {
         health = starting_health;
 
+        //sp = GetComponent<SpriteRenderer>();
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -45,16 +48,14 @@ public class Enemy_health : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
-        if(health <= 0)
+    {
+        if (health <= 0)
         {
-            Purgatory();
-            //death animation
-            
+            Purgatory();            
         }
 
         if (ph.has_restarted)
-        {           
+        {
             Respawn();
         }
 
@@ -103,10 +104,12 @@ public class Enemy_health : MonoBehaviour
                 knock_right = false;
             }
 
-            anim.SetTrigger("Recoil");
+            if(health != 0)
+            {
+                anim.SetTrigger("Recoil");
+            }
+
             knock_back_count = knock_back_length;
-            //hit animation
-            //recoil motion
             //move_speed = 0 
         }
     }
@@ -119,18 +122,23 @@ public class Enemy_health : MonoBehaviour
 
     void Purgatory()
     {
+        death_anim.SetActive(true);
+        //Instantiate(death_anim, transform.position, transform.rotation);
+        anim.enabled = false;
+        sp.enabled = false;
         is_in_purgatory = true;
         hitbox.enabled = false;
-        this.transform.position = purgatory.transform.position;
+        //this.transform.position = purgatory.transform.position;
     }
 
     void Respawn()
-    {       
-        is_in_purgatory = false;
-        hitbox.enabled = true;
+    {
+        death_anim.SetActive(false);
         health = starting_health;
+        anim.enabled = true;
+        sp.enabled = true;
+        hitbox.enabled = true;
         this.transform.position = spawn_point.transform.position;
-        //change, this was making it so only one enemy respawn
-        //ph.has_restarted = false;
+        is_in_purgatory = false;
     }
 }
