@@ -388,17 +388,16 @@ public class Les_animations : MonoBehaviour
 
     public void Flip_Angry()
     {
-        if (pm.is_grounded)
+
+        if (pm.move_direction > 0 && !facing_right)
         {
-            if (pm.move_direction > 0 && !facing_right)
-            {
-                Angry_Flip_Sprite();
-            }
-            else if (pm.move_direction < 0 && facing_right)
-            {
-                Angry_Flip_Sprite();
-            }
+            Angry_Flip_Sprite();
         }
+        else if (pm.move_direction < 0 && facing_right)
+        {
+            Angry_Flip_Sprite();
+        }
+        
     }
 
     public void Angry_Flip_Sprite()
