@@ -32,6 +32,8 @@ public class Les_animations : MonoBehaviour
     public bool angry_landing;
 
     public bool angry_attacking;
+    public float dash_attack_cooldown_time = 2f;
+    public float dash_attack_cooldown;
 
     public float dash_attack_length;
     public float dash_attack_count;
@@ -145,8 +147,7 @@ public class Les_animations : MonoBehaviour
         {
             if (facing_right && angry_attacking)
             {
-                dash_right = true;
-                //the number at the end is the y value for knock back amount
+                dash_right = true;              
                 pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
                 pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 dash_attack_count -= Time.deltaTime;
@@ -163,6 +164,15 @@ public class Les_animations : MonoBehaviour
         {
             pm.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             angry_attacking = false;
+        }
+
+        if (angry_attacking == true)
+        {
+            dash_attack_cooldown = dash_attack_cooldown_time;
+        }
+        else
+        {
+            dash_attack_cooldown -= Time.deltaTime;
         }
     }
 
@@ -356,10 +366,12 @@ public class Les_animations : MonoBehaviour
     //Angry
     public void Angry_Attack()
     {
-        angry_attacking = true;
-        dash_attack_count = dash_attack_length;
-
-        angry_anim.SetTrigger("Attack");
+        if(dash_attack_cooldown <= 0)
+        {
+            angry_attacking = true;
+            dash_attack_count = dash_attack_length;
+            angry_anim.SetTrigger("Attack");
+        } 
     }
 
     public void Angry_Running()

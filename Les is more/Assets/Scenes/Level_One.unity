@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: dash_attack_length
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: dash_attack_cooldown_time
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379159, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: m_Mass
       value: 1
