@@ -52,7 +52,7 @@ public class Les_animations : MonoBehaviour
 
     public bool facing_right = true;
 
-
+    public AudioSource dash_attack_sound;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +151,7 @@ public class Les_animations : MonoBehaviour
         {
             if (facing_right && angry_attacking)
             {
+                les_anim.SetTrigger("Attack");
                 dash_right = true;
                 pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
                 pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
@@ -158,6 +159,7 @@ public class Les_animations : MonoBehaviour
             }
             if (!facing_right && angry_attacking)
             {
+                les_anim.SetTrigger("Attack");
                 dash_right = false;
                 pm.rb.AddForce(new Vector2(-x_axis_dash_force, 0));
                 pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
@@ -180,6 +182,23 @@ public class Les_animations : MonoBehaviour
         }
     }
 
+    public void Recoil()
+    {
+        if (is_les)
+        {
+            les_anim.SetTrigger("Recoil");
+        }
+        if (is_sleepy)
+        {
+            sleepy_anim.SetTrigger("Recoil");
+        }
+        if (is_angry)
+        {
+            angry_anim.SetTrigger("Recoil");
+        }
+    }
+
+    //les 
     public void Attack()
     {
         if (is_les)
@@ -267,25 +286,9 @@ public class Les_animations : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    public void Recoil()
-    {
-        if (is_les)
-        {
-            les_anim.SetTrigger("Recoil");
-        }
-        if (is_sleepy)
-        {
-            sleepy_anim.SetTrigger("Recoil");
-        }
-        if (is_angry)
-        {
-            angry_anim.SetTrigger("Recoil");
-        }
-    }
-
     public void Les_Attack()
     {
-        les_anim.SetTrigger("Attack");
+
 
         if (pm.is_grounded)
         {
@@ -301,7 +304,7 @@ public class Les_animations : MonoBehaviour
     }
 
 
-    //sleepy animations
+    //sleepy 
 
     public void Sleepy_Attack()
     {
@@ -367,9 +370,11 @@ public class Les_animations : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
+
     //Angry
     public void Angry_Attack()
     {
+        dash_attack_sound.Play();
         if(dash_attack_cooldown <= 0)
         {
             angry_attacking = true;
@@ -411,14 +416,6 @@ public class Les_animations : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    //public void Angry_Take_Off()
-    //{
-    //    if (pm.is_jumping)
-    //    {
-    //        angry_anim.SetTrigger("TakeOff");
-    //    }
-    //}
-
     public void Angry_Jump()
     {
         if (pm.is_grounded == true)
@@ -451,21 +448,3 @@ public class Les_animations : MonoBehaviour
         }
     }
 }
-
-//dash_attack_count = dash_attack_length;
-//if (dash_attack_count >= 0)
-//{
-//    if (facing_right)
-//    {
-//        dash_right = true;
-//        //the number at the end is the y value for knock back amount
-//        pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
-//        dash_attack_count -= Time.deltaTime;
-//    }
-//    if (!facing_right)
-//    {
-//        dash_right = false;
-//        pm.rb.AddForce(new Vector2(-x_axis_dash_force, 0));
-//        dash_attack_count -= Time.deltaTime;
-//    }
-//}
