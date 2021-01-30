@@ -1,7 +1,109 @@
 fileFormatVersion: 2
 guid: 87c7d19c467f64bd39ce687a103da985
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3738626704600694376
+    second: Title_screen_Les_0
+  - first:
+      213: -2975310130473961911
+    second: Title_screen_Les_1
+  - first:
+      213: -3874157975942485137
+    second: Title_screen_Les_2
+  - first:
+      213: 1476338584422291325
+    second: Title_screen_Les_3
+  - first:
+      213: 1859191713304794338
+    second: Title_screen_Les_4
+  - first:
+      213: -6340793314397927105
+    second: Title_screen_Les_5
+  - first:
+      213: -6975143423137168001
+    second: Title_screen_Les_6
+  - first:
+      213: 6854246392582723394
+    second: Title_screen_Les_7
+  - first:
+      213: 4304928132903229568
+    second: Title_screen_Les_8
+  - first:
+      213: 2694163660932343197
+    second: Title_screen_Les_9
+  - first:
+      213: 8211395385019162822
+    second: Title_screen_Les_10
+  - first:
+      213: -3922831666446792862
+    second: Title_screen_Les_11
+  - first:
+      213: -6200730409389225426
+    second: Title_screen_Les_12
+  - first:
+      213: -7786580826614930105
+    second: Title_screen_Les_13
+  - first:
+      213: 6453272497297146796
+    second: Title_screen_Les_14
+  - first:
+      213: -3287889749771736351
+    second: Title_screen_Les_15
+  - first:
+      213: -8612052453625640976
+    second: Title_screen_Les_16
+  - first:
+      213: -3997372863817949590
+    second: Title_screen_Les_17
+  - first:
+      213: 1497290657423505769
+    second: Title_screen_Les_18
+  - first:
+      213: 2628510854941417577
+    second: Title_screen_Les_19
+  - first:
+      213: -4678465274553412330
+    second: Title_screen_Les_20
+  - first:
+      213: 3719980755421353054
+    second: Title_screen_Les_21
+  - first:
+      213: 4461557815185278554
+    second: Title_screen_Les_22
+  - first:
+      213: 850696780137893075
+    second: Title_screen_Les_23
+  - first:
+      213: -6377305877486161223
+    second: Title_screen_Les_24
+  - first:
+      213: 8719497675727658736
+    second: Title_screen_Les_25
+  - first:
+      213: -1755910427025879952
+    second: Title_screen_Les_26
+  - first:
+      213: 730853009129082809
+    second: Title_screen_Les_27
+  - first:
+      213: -8701457877082446901
+    second: Title_screen_Les_28
+  - first:
+      213: 7100417334620127462
+    second: Title_screen_Les_29
+  - first:
+      213: -3271189342849841062
+    second: Title_screen_Les_30
+  - first:
+      213: -4931651182536824074
+    second: Title_screen_Les_31
+  - first:
+      213: 4608587420917837967
+    second: Title_screen_Les_32
+  - first:
+      213: -4835880214267993543
+    second: Title_screen_Les_33
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +134,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +143,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,10 +167,46 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +215,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Title_screen_Les_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8918c7cf1dabd1cc0800000000000000
+      internalID: -3738626704600694376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9467a70433395b6d0800000000000000
+      internalID: -2975310130473961911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ba338d8d93c3ac0800000000000000
+      internalID: -3874157975942485137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7791bcde120d7410800000000000000
+      internalID: 1476338584422291325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4d1e8430d2dc910800000000000000
+      internalID: 1859191713304794338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39c325531af008a0800000000000000
+      internalID: -6340793314397927105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75c1863300533f90800000000000000
+      internalID: -6975143423137168001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24755e857cc2f1f50800000000000000
+      internalID: 6854246392582723394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_screen_Les_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0885841145d2ebb30800000000000000
+      internalID: 4304928132903229568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
