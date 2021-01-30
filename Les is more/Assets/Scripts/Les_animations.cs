@@ -52,6 +52,8 @@ public class Les_animations : MonoBehaviour
 
     public bool facing_right = true;
 
+    public AudioSource dash_attack_sound;
+
 
 
     // Start is called before the first frame update
@@ -370,6 +372,7 @@ public class Les_animations : MonoBehaviour
     //Angry
     public void Angry_Attack()
     {
+        dash_attack_sound.Play();
         if(dash_attack_cooldown <= 0)
         {
             angry_attacking = true;
