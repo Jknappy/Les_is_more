@@ -9,6 +9,8 @@ public class Collect_Coin : MonoBehaviour
     public SpriteRenderer sp;
     public CircleCollider2D coin_collider;
 
+    public AudioSource collect_coin_sound;
+
     public bool collected_coin;
 
     private void Start()
@@ -36,6 +38,8 @@ public class Collect_Coin : MonoBehaviour
 
             ph.player_collected_coin = true;
             ph.player_coin_count++;
+
+            collect_coin_sound.Play();
         }
             ph.player_collected_coin = false;
         

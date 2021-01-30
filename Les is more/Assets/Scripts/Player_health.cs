@@ -24,7 +24,7 @@ public class Player_health : MonoBehaviour
     public GameObject spawn_point;
 
     [Header("Conditions")]
-    public bool damaged = true;
+    public bool damaged = false;
     public bool invincible = false;
     public bool has_restarted;
     public bool reached_goal = false;
@@ -41,6 +41,8 @@ public class Player_health : MonoBehaviour
 
     public Next_Level nl;
     public GameObject next_level;
+
+    public AudioSource hit_player;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +83,7 @@ public class Player_health : MonoBehaviour
 
         if (damaged == true)
         {
+            hit_player.Play();
             player_health -= 1f;
             invincibilty = invincibility_countdown;
             damaged = false;            

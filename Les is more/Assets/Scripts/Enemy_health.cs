@@ -35,6 +35,11 @@ public class Enemy_health : MonoBehaviour
     public CircleCollider2D hitbox;
     public SpriteRenderer sp;
     public Animator anim;
+    public AudioSource death_sound;
+    public AudioSource hit_sound;
+
+    public bool has_died;
+    public bool was_hit;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +61,8 @@ public class Enemy_health : MonoBehaviour
     void Update()
     {
         if (health <= 0)
-        {
+        {          
+            death_sound.Play();           
             Purgatory();            
         }
 
@@ -111,6 +117,7 @@ public class Enemy_health : MonoBehaviour
     {
         if(collision.tag == "attack")
         {
+            hit_sound.Play();
             health--;
 
             if(target.position.x > transform.position.x)
@@ -153,6 +160,10 @@ public class Enemy_health : MonoBehaviour
 
     void Purgatory()
     {
+
+
+        health = starting_health;
+        has_died = false; 
         death_anim.SetActive(true);
         //Instantiate(death_anim, transform.position, transform.rotation);
         anim.enabled = false;
@@ -165,7 +176,7 @@ public class Enemy_health : MonoBehaviour
     void Respawn()
     {
         death_anim.SetActive(false);
-        health = starting_health;
+        //health = starting_health;
         anim.enabled = true;
         sp.enabled = true;
         hitbox.enabled = true;

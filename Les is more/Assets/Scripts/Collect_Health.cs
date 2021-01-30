@@ -8,6 +8,7 @@ public class Collect_Health : MonoBehaviour
     public GameObject player;
     public SpriteRenderer sp;
     public CircleCollider2D heart_collider;
+    public AudioSource collect_heart_sound;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class Collect_Health : MonoBehaviour
         {           
             sp.enabled = false;
             heart_collider.enabled = false;
+            collect_heart_sound.Play();
             if(ph.starting_health != ph.player_health)
             {
                 ph.player_health += 1f;
