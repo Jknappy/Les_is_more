@@ -82,7 +82,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4650797817342138780
 Transform:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.25
+  m_GravityScale: 0.5
   m_Material: {fileID: 6200000, guid: 78e20b0e640e94fe781dc8d85a49d918, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 6921324283405580084, guid: 9cceb77796ff2074eaa438d8d2919f64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -190,10 +190,10 @@ MonoBehaviour:
   les_x_axis_knock_back: 0
   les_y_axis_knock_back: 0
   is_sleepy: 1
-  sleepy_health_amount: 8
-  sleepy_air_speed: 1.5
-  sleepy_move_speed: 0.75
-  sleepy_jump_force: 175
+  sleepy_health_amount: 5
+  sleepy_air_speed: 3.5
+  sleepy_move_speed: 2
+  sleepy_jump_force: 400
   sleepy_getting_up: 0
   sleepy_x_axis_knock_back: 6.5
   sleepy_y_axis_knock_back: 0.5
@@ -204,6 +204,9 @@ MonoBehaviour:
   angry_x_axis_knock_back: 0
   angry_y_axis_knock_back: 0
   angry_landing: 0
+  angry_attacking: 0
+  dash_attack_cooldown_time: 2
+  dash_attack_cooldown: 0
   dash_attack_length: 0
   dash_attack_count: 0
   dash_right: 0
@@ -229,14 +232,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starting_health: 8
   player_health: 0
+  number_of_hearts: 0
   restart_count: 0
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  full_heart: {fileID: 7189121079932636521, guid: 3eb24b145f12940b593b3c118e2b819f, type: 3}
   player_health_amount: {fileID: 0}
   restart_count_text: {fileID: 0}
+  coin_count_text: {fileID: 0}
   spawn_point: {fileID: 0}
-  can_be_damaged: 0
+  damaged: 1
+  invincible: 0
   has_restarted: 0
   reached_goal: 0
+  player_collected_coin: 0
+  player_coin_count: 0
+  invincibilty: 0
+  invincibility_countdown: 1
   respawn_enemies: 0
+  nl: {fileID: 0}
+  next_level: {fileID: 0}
 --- !u!114 &4650797817342138777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 0
-  jump_force: 175
+  jump_force: 0
   move_direction: 0
   is_jumping: 0
   is_grounded: 0
@@ -264,7 +286,7 @@ MonoBehaviour:
   ground_object:
     serializedVersion: 2
     m_Bits: 64
-  check_radius: 0.07
+  check_radius: 0.25
   rb: {fileID: 0}
 --- !u!114 &4650797817342138778
 MonoBehaviour:
@@ -358,7 +380,7 @@ GameObject:
   - component: {fileID: 4650797817988639055}
   m_Layer: 0
   m_Name: Collision_check
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,9 +392,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4650797817988639049}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.07, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4650797816320292927}
   - {fileID: 4650797816560947185}

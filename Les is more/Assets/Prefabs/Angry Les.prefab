@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4171108957104086848}
   m_Layer: 0
   m_Name: Collision_check
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4171108957104086850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.07, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4171108958047540158}
   - {fileID: 4171108957144882478}
@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4171108957438379157
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4807128510069927622, guid: 01846fa563e53934e8a7680029e40d29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -193,9 +193,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 3.5
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 78e20b0e640e94fe781dc8d85a49d918, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -229,15 +229,18 @@ MonoBehaviour:
   sleepy_y_axis_knock_back: 0.5
   is_angry: 1
   angry_health_amount: 3
-  angry_move_speed: 3
-  angry_jump_force: 400
-  angry_x_axis_knock_back: 0
-  angry_y_axis_knock_back: 0
+  angry_move_speed: 4.75
+  angry_jump_force: 875
+  angry_x_axis_knock_back: 10
+  angry_y_axis_knock_back: 2
   angry_landing: 0
-  dash_attack_length: 1
+  angry_attacking: 0
+  dash_attack_cooldown_time: 1
+  dash_attack_cooldown: 0
+  dash_attack_length: 0.3
   dash_attack_count: 0
   dash_right: 0
-  x_axis_dash_force: 500
+  x_axis_dash_force: 400
   les_anim: {fileID: 4171108957438379181}
   sleepy_anim: {fileID: 0}
   angry_anim: {fileID: 4171108957438379181}
@@ -262,7 +265,7 @@ MonoBehaviour:
   move_direction: 0
   is_jumping: 0
   is_grounded: 0
-  knock_back_length: 0.05
+  knock_back_length: 0.1
   knock_back_count: 0
   knock_right: 0
   x_axis_knock_back: 0
@@ -272,7 +275,7 @@ MonoBehaviour:
   ground_object:
     serializedVersion: 2
     m_Bits: 64
-  check_radius: 0.07
+  check_radius: 0.25
   rb: {fileID: 4171108957438379159}
 --- !u!114 &4171108957438379176
 MonoBehaviour:
@@ -301,14 +304,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starting_health: 3
   player_health: 0
+  number_of_hearts: 0
   restart_count: 0
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  full_heart: {fileID: 7189121079932636521, guid: 3eb24b145f12940b593b3c118e2b819f, type: 3}
   player_health_amount: {fileID: 0}
   restart_count_text: {fileID: 0}
+  coin_count_text: {fileID: 0}
   spawn_point: {fileID: 0}
-  can_be_damaged: 0
+  damaged: 1
+  invincible: 0
   has_restarted: 0
   reached_goal: 0
+  player_collected_coin: 0
+  player_coin_count: 0
+  invincibilty: 1
+  invincibility_countdown: 0
   respawn_enemies: 0
+  nl: {fileID: 0}
+  next_level: {fileID: 0}
 --- !u!114 &4171108957438379178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,13 +388,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4171108957872284041}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.126, y: -0.015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4171108957438379157}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!70 &4171108957872284151
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -386,8 +408,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 0}
-  m_Size: {x: 0.3, y: 0.45}
+  m_Offset: {x: -0.09, y: -0.45}
+  m_Size: {x: 1.23, y: 1.66}
   m_Direction: 0
 --- !u!1 &4171108958047540145
 GameObject:

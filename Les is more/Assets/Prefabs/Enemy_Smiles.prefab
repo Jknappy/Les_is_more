@@ -120,7 +120,7 @@ MonoBehaviour:
   enemy_move_speed: 2.5
   target_range: 5
   is_in_purgatory: 0
-  attack_stall_time: 1
+  attack_stall_time: 0.75
   attack_stall: 0
   purgatory: {fileID: 0}
   spawn_point: {fileID: 2274867714371465317, guid: aaa90968c8c1c4ad0a5d447f51465040, type: 3}
