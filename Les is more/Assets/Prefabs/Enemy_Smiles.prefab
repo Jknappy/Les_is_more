@@ -104,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: 0}
   serializedVersion: 2
-  m_Radius: 0.31
+  m_Radius: 0.37
 --- !u!114 &9086203727416864972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   purgatory: {fileID: 0}
   spawn_point: {fileID: 2274867714371465317, guid: aaa90968c8c1c4ad0a5d447f51465040, type: 3}
   death_anim: {fileID: 6325968567249672037}
-  knock_back: 50
+  knock_back: 75
   knock_back_length: 0.05
   knock_back_count: 0
   knock_right: 0
@@ -181,7 +181,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!82 &5166303960430592323
 AudioSource:
   m_ObjectHideFlags: 0

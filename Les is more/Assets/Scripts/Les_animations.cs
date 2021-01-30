@@ -151,7 +151,7 @@ public class Les_animations : MonoBehaviour
         {
             if (facing_right && angry_attacking)
             {
-                les_anim.SetTrigger("Attack");
+                
                 dash_right = true;
                 pm.rb.AddForce(new Vector2(x_axis_dash_force, 0));
                 pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
@@ -159,7 +159,6 @@ public class Les_animations : MonoBehaviour
             }
             if (!facing_right && angry_attacking)
             {
-                les_anim.SetTrigger("Attack");
                 dash_right = false;
                 pm.rb.AddForce(new Vector2(-x_axis_dash_force, 0));
                 pm.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
@@ -180,6 +179,11 @@ public class Les_animations : MonoBehaviour
         {
             dash_attack_cooldown -= Time.deltaTime;
         }
+
+        //if ()
+        //{
+        //    dash_attack_sound.Play();
+        //}
     }
 
     public void Recoil()
@@ -371,10 +375,9 @@ public class Les_animations : MonoBehaviour
     }
 
 
-    //Angry
+
     public void Angry_Attack()
     {
-        dash_attack_sound.Play();
         if(dash_attack_cooldown <= 0)
         {
             angry_attacking = true;
