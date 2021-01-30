@@ -1151,6 +1151,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: les_health_amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: angry_health_amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171108957438379158, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
+      propertyPath: sleepy_health_amount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4171108957438379177, guid: 9136a57dc91e34b81815bcd947d699fd, type: 3}
       propertyPath: check_radius
       value: 0.4
@@ -15820,7 +15832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138759, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4650797817342138777, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: check_radius
@@ -15913,6 +15925,18 @@ PrefabInstance:
     - target: {fileID: 4650797817342138780, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650797817342138781, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
+      propertyPath: les_health_amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650797817342138781, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
+      propertyPath: angry_health_amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650797817342138781, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
+      propertyPath: sleepy_health_amount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca8fdf8221c54948a2241e67d161ad1, type: 3}
@@ -17078,6 +17102,18 @@ PrefabInstance:
     - target: {fileID: 6562065201773077042, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: les_health_amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: angry_health_amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077044, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: sleepy_health_amount
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077045, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: check_radius
