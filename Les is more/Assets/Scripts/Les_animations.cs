@@ -292,10 +292,11 @@ public class Les_animations : MonoBehaviour
 
     public void Les_Attack()
     {
-
+        les_anim.SetTrigger("Attack");
 
         if (pm.is_grounded)
         {
+            
             pm.move_speed = 0f;
             StartCoroutine(Les_Attack_Stall());
         }
