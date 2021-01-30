@@ -40,6 +40,8 @@ public class GameMaster : MonoBehaviour
     public Collect_Health[] ch;
     public GameObject[] collect_health;
 
+    public bool pause = false;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -136,6 +138,23 @@ public class GameMaster : MonoBehaviour
                 {
                     StartLes();
                 }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseGame();
+        }
+
+        if (pause == true)
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                ResumeGame();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene(start);
             }
         }
     }
@@ -283,6 +302,18 @@ public class GameMaster : MonoBehaviour
     {
         start_menu = GameObject.Find("StartMenu");
         sm = start_menu.GetComponent<StartMenu>();
+    }
+
+    void PauseGame()
+    {
+        pause = true;
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        pause = false;
+        Time.timeScale = 1;
     }
 
 }
