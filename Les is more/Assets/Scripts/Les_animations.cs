@@ -180,10 +180,7 @@ public class Les_animations : MonoBehaviour
             dash_attack_cooldown -= Time.deltaTime;
         }
 
-        //if ()
-        //{
-        //    dash_attack_sound.Play();
-        //}
+
     }
 
     public void Recoil()
@@ -335,10 +332,10 @@ public class Les_animations : MonoBehaviour
             sleepy_anim.SetBool("Jumping", false);
 
         }
-        else
+        else 
         {
             sleepy_anim.SetBool("Jumping", true);
-            
+
         }
     }
 

@@ -40,6 +40,8 @@ public class GameMaster : MonoBehaviour
     public Collect_Health[] ch;
     public GameObject[] collect_health;
 
+    public AudioSource end_game_music;
+
     public bool pause = false;
 
     void Awake()
@@ -94,11 +96,16 @@ public class GameMaster : MonoBehaviour
                 //TotalRestart();
             }
 
+            if (nl.coin_count == 7)
+            {
+                //win screen?               
+                SceneManager.LoadScene(start);
+                nl.beat_game = true;
+            }
+
             if (nl.beat_game)
             {
-                //win screen?
-                nl.beat_game = false;
-                SceneManager.LoadScene(start);
+                end_game_music.Play();
             }
         }
 
@@ -171,12 +178,14 @@ public class GameMaster : MonoBehaviour
         //scene_name = start_menu;
        
         SceneManager.LoadScene(start);
+        end_game_music.Play();
         //Scene current_scene = SceneManager.GetActiveScene();        
     }
 
     public void StartLes()
     {
         //scene_name = level_One;
+        end_game_music.Stop();
         SceneManager.LoadScene(level_One);
     }
 

@@ -152,7 +152,7 @@ public class Player_health : MonoBehaviour
         has_restarted = true;
         restart_count++;
         this.transform.position = spawn_point.transform.position;
-        player_health = starting_health;
+        player_health = 5;
 
         // a timer to get all the enemies respawning, without it the true false check was too quick 
         StartCoroutine(Wait_For_Enemy_Respawn());
