@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     private Les_animations les_Animations;
     public Rigidbody2D rb;
 
+    public AudioSource jump_sound;
+
+
     private void Awake()
     {
         
@@ -97,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && is_grounded)
         {
+            jump_sound.Play();
+
             if (les_Animations.is_sleepy)
             {
                 if (les_Animations.sleepy_getting_up)

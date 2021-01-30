@@ -52,6 +52,8 @@ public class Les_animations : MonoBehaviour
 
     public bool facing_right = true;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
