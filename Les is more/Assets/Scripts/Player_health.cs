@@ -52,7 +52,7 @@ public class Player_health : MonoBehaviour
 
         les_anim = GetComponent<Les_animations>();
         pm = GetComponent<PlayerMovement>();
-        player_health = starting_health;
+        player_health = 5;
         number_of_hearts = player_health;
     }
 
