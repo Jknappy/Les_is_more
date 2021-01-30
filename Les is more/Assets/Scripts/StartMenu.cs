@@ -33,4 +33,9 @@ public class StartMenu : MonoBehaviour
         chose_angry = true;
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }

@@ -16364,13 +16364,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6562065201773077045, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
+      propertyPath: check_radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077046, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_Name
       value: Les
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077046, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6562065201773077055, guid: 17f00696ad6a44e8da9388d76a9f192b, type: 3}
       propertyPath: spawn_point
