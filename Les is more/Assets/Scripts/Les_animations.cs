@@ -6,7 +6,7 @@ public class Les_animations : MonoBehaviour
 {
     [Header("Les")]
     public bool is_les;
-    public float les_health_amount;
+    //public float les_health_amount;
     public float les_move_speed;
     public float les_jump_force;
     public float les_x_axis_knock_back;
@@ -14,7 +14,7 @@ public class Les_animations : MonoBehaviour
 
     [Header("Sleepy")]
     public bool is_sleepy;
-    public float sleepy_health_amount;
+   // public float sleepy_health_amount;
     public float sleepy_air_speed;
     public float sleepy_move_speed;
     public float sleepy_jump_force;
@@ -24,7 +24,7 @@ public class Les_animations : MonoBehaviour
 
     [Header("Angry")]
     public bool is_angry;
-    public float angry_health_amount;
+    //public float angry_health_amount;
     public float angry_move_speed;
     public float angry_jump_force;
     public float angry_x_axis_knock_back;
@@ -65,7 +65,7 @@ public class Les_animations : MonoBehaviour
             pm.x_axis_knock_back = les_x_axis_knock_back;
             pm.y_axis_knock_back = les_y_axis_knock_back;
 
-            ph.starting_health = les_health_amount;
+            //ph.starting_health = les_health_amount;
             les_anim = GetComponent<Animator>();
         }
         else if(is_sleepy)
@@ -76,7 +76,7 @@ public class Les_animations : MonoBehaviour
             pm.x_axis_knock_back = sleepy_x_axis_knock_back;
             pm.y_axis_knock_back = sleepy_y_axis_knock_back;
 
-            ph.starting_health = sleepy_health_amount;
+            //ph.starting_health = sleepy_health_amount;
             sleepy_anim = GetComponent<Animator>();
         }
         else if (is_angry)
@@ -87,7 +87,7 @@ public class Les_animations : MonoBehaviour
             pm.x_axis_knock_back = angry_x_axis_knock_back;
             pm.y_axis_knock_back = angry_y_axis_knock_back;
 
-            ph.starting_health = angry_health_amount;
+            //ph.starting_health = angry_health_amount;
             angry_anim = GetComponent<Animator>();
         }
     }
